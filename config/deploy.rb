@@ -1,8 +1,8 @@
 
 lock "3.14.1"
 
-set :application, "freeM"
-set :repo_url, "git@github.com:KSK-engineer/freeM.git"
+set :application, "fleamarket_sample_74d"
+set :repo_url, "git@github.com:KSK-engineer/fleamarket_sample_74d.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
