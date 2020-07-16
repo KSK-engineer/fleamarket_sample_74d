@@ -2,20 +2,120 @@
   box-sizing: border-box;
 }
 
-header {
-  
-}
-
-main {
-  background-color: #f8f8f8;
+img {
   width: 100%;
-  height: 560px;
+  vertical-align: bottom;
 }
 
-.banner-ad {
-  background-color: lightslategray;
+.header{
+  padding: 0 60px;
+  .header-contents {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    .main-header {
+      display: flex;
+      align-items: center;
+      .logo {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        a {
+          width: 140px;
+          display: block;
+        }
+      }
+      .search-box {
+        margin-left: auto;
+        width: 100%;
+        height: 41px;
+        form {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+            input {
+              width: calc(100% - 26px);
+              height: 36px;
+              padding: 0 0 0 5px;
+              line-height: 36px;
+              font-size: 100%;
+            }
+          button {
+            width: 36px;
+            border: 0;
+            background-color: #3CCACE;
+            padding: 8px;
+          }
+        }
+      }
+    }
+    .nav {
+      display: flex;
+      margin-bottom: 10px;
+      font-size: 14px;
+      justify-content: space-between;
+      ul {
+        list-style: none;
+      }
+      .left-box {
+        display: flex;
+        line-height: 38px;
+        a {
+          text-decoration: none;
+          color: #333333;
+          line-height: 32px;
+          padding-right: 30px;
+        }
+        &__left {
+          text-decoration: none;
+          display: flex;
+          line-height: 38px;
+        }
+        &__right {
+          padding: 0 0 0 16px;
+          display: flex;
+          line-height: 32px;
+        }
+      }
+      .right-box {
+        background-color: white;
+        display: flex;
+        line-height: 32px;
+        a {
+          text-decoration: none;
+          color: #333333;
+          line-height: 32px;
+        }
+        &__left {
+          padding: 0 0 0 16px;
+        }
+        &__right {
+          padding: 0 0 0 16px;
+        }
+      }
+    }
+  }
+}
+// nav内、まとめる
+// まとめられそうなところはまとめる
+// カラー、サイズも
+
+.main {
+  background-color:lightblue;
+  height: 500px;
+  width: 100%;
 }
 
-footer {
-  background-color: black;
+.app-banner {
+  background-color: lightcoral;
+  height: 200px;
+  width: 100%;
+}
+
+.footer {
+  background-color: lightgreen;
+  height: 200px;
+  width: 100%;
 }
