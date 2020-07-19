@@ -56,7 +56,7 @@
 |------|----|-------|
 |user_id|references|null:false, foreign_key:true|
 |item_id|references|null:false, foreign_key:true|
-|comments|text|null:false|
+|comment|text|null:false|
 ### Association
 - belongs_to :user
 - belongs_to :item
