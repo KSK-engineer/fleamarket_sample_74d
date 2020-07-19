@@ -1,24 +1,105 @@
-# README
+# fleamarket-74d DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null:false|
+|email|string|null:false,unique:true|
+|password|string|null:false,unique:true| 
+|familyname_kanji|string|null:false|
+|firstname_kanji|string|null:false|
+|familyname_kana|string|null:false|
+|firstname_kana|string|null:false|
+|birthday_year|integer|null:false|
+|birthday_month|integer|null:false|
+|birthday_day|integer|null:false|
+### Association
+- has_one: address
+- has_one: credit_cards(PAY.jp)
+- has_many: items
+- has_many: likes(中間)
+- has_many: comments(中間)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+|detail|text|null:false|
+|condition|string|null:false|
+|delivery_fee|string|null:false|
+|delivery_area|string|null:false|
+|delivery_days|string|null:false|
+|price|integer|null:false|
+|status|string|null:false|
+### Association
+- belongs_to: user
+- belongs_to: category
+- belongs_to: brand
+- has_many: images
+- has_many: likes
+- has_many: comments
 
-Things you may want to cover:
+## likes(中間)テーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false, foreign_key:true|
+|item_id|references|null:false, foreign_key:true|
+### Association
+- belongs_to: user
+- belongs_to: item
+- belongs_to: image
 
-* Ruby version
+## comments(中間)テーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false, foreign_key:true|
+|item_id|references|null:false, foreign_key:true|
+|comments|text|null:false|
+|created_at|timestamp|null:false|
+### Association
+- belongs_to: user
+- belongs_to: item
 
-* System dependencies
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null:false, foreign_key:true|
+|url|string|null:false|
+### Association
+- belongs_to: item
+- has_many: likes
 
-* Configuration
+## addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user-id|references|null:false,foreign_key:true|
+|postcode|integer|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
+|block|string|null:false|
+|building|string|
+|phone_number|integer|
+### Association
+- has_one: user
 
-* Database creation
+## credit_cards(PAY.jp)テーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false, foreign_key:true|
+|card_number|integer|null:false|
+|valid_date|integer|null:false|
+### Association
+- has_one: user
 
-* Database initialization
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+### Association
+- has_many:items
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+### Association
+- has_many:items
