@@ -49,7 +49,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :image
+
 
 ## comments(中間)テーブル
 |Column|Type|Options|
@@ -68,7 +68,7 @@
 |url|string|null:false|
 ### Association
 - belongs_to :item
-- has_many :likes
+
 
 ## addressテーブル
 |Column|Type|Options|
