@@ -73,3 +73,4 @@ group :production do
   gem 'unicorn'
 end
 gem 'rubocop', require:false
+gem 'haml-rails'
