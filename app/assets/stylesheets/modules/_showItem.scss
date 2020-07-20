@@ -36,7 +36,6 @@
       .searchBox{
         height: 41px;
         width: 852px;
-        // background-color: cornsilk;
         display: flex;
         align-items: center;
         .search-form{
@@ -211,15 +210,12 @@
         height: 36px;
         width: 150px;
         list-style: none;
-        border: 2px solid black;
         padding: 5px 12px;
-        border-radius: 100px;
+        border-radius: 40px;
         border: 1px solid #ffb340;
         color: #3ccace;
         line-height: 22px;
         cursor: pointer;
-        .fa-star{
-        }
       }
       .tel{
         height: 35px;
@@ -271,9 +267,6 @@
       margin: auto;
       display: block;
       cursor: pointer;
-      .comment-icon{
-
-      }
     }
   }
   .links{
