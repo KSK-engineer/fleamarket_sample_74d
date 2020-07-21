@@ -1,26 +1,90 @@
 .main
-  .main-visual
-    .main-contents
-      .main-content__subtitle
-      .main-content__text
+  %section.main-visual
+    .main-content
+      %h2.main-content__subtitle 
+        %br
+          人生を変えるフリマアプリ
+      %p.main-content__text 
+        FURIMAはだれでもかんたんに出品・購入できる 
+        %br フリマアプリです
       .main-content__btn
-        .main-content__btn__app
-        .main-content__btn__google
-  .app-introduction
-    .intruduction-subtitle
-    .lists
+        =link_to image_tag("/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class:"a-icon"),"https://appstoreconnect.apple.com/login"
+        =link_to image_tag("/google-play-badge (1).png", class:"g-icon"),"http://play.google.com/store/apps/details?id=com.google.android.apps.maps&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
 
-  .middle-visual
+  %section.app-introduction
+    %h2.introduction-subtitle FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number 1
+          =link_to image_tag("/pict/pict-reason-01.jpg"),'/'
+        %h3.list__text
+          %span 3分
+          ですぐに出品
+        %p.list__description
+          スマホで入力するだけで簡単に出品できる！
+
+      %li.list
+        .list__pict
+          %span.number 2
+          =link_to image_tag("/pict/pict-reason-02.jpg"),'/'
+        %h3.list__text
+          %span シンプル
+          で使いやすい
+        %p.list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+
+      %li.list.list--last
+        .list__pict
+          %span.number 3
+          =link_to image_tag("/pict/pict-reason-03.jpg"),'/'
+        %h3.list__text
+          手数料
+          %span 業界最安
+        %p.list__description
+          最大3%でお得に出品&購入！
+
+  %section.middle-visual
     .middle-content
-      .middle-content__subtitle
-      .middle-content__text
+      %h2.middle-content__subtitle 会員数日本一位
+      %p.middle-content__text 
+        FURIMAは、フリマアプリで最も人気。
+        %br 
+          出品・購入回数も業界最多です！
+          %br
+          ほしかったあの商品に出会えるかもしれません。
+
       .middle-content__btn
-        .middle-content__btn__app
-        .middle-content__btn__google
+        =link_to image_tag("/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class:"a-icon"),"https://appstoreconnect.apple.com/login"
+        =link_to image_tag("/google-play-badge (1).png", class:"g-icon"),"http://play.google.com/store/apps/details?id=com.google.android.apps.maps&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+
 
   .app-feature
-    .feature-subtitle
-    .feature-contents
+    %h2.feature-subtitle FURIMAの特徴
+    %ul.lists
+      %li.list
+        %figure.list__pict
+          =link_to image_tag("/icon/icon-01.png"),'/'
+        %h3.list__text
+          簡単に売り買いできる
+        %p.list__description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li.list
+        %figure.list__pict
+          =link_to image_tag("/icon/icon-03.png"),'/'
+        %h3.list__text
+          売上金は即日振込みに対応
+        %p.list__description
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+
+      %li.list
+        %figure.list__pict
+          =link_to image_tag("/icon/icon-04.png"),'/'
+        %h3.list__text
+          様々な支払いに対応
+        %p.list__description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+    
 
   .picup-container
     .head
