@@ -77,3 +77,5 @@ gem 'haml-rails'
 
 gem 'carrierwave'
 gem 'rmagick'
+
+gem "font-awesome-sass"
