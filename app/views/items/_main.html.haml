@@ -86,8 +86,121 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
     
 
-  .picup-container
-    .head
-    .products
+  %section.picup-container
+    %h2.picup-subtitle ピックアップカテゴリー 
+    .product-box
+      .product-head
+        %a
+          %h3.title 新規投稿商品
+      .product-lists
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/1.png")
+            .product-list--body
+              %h3.name 1
+              .details
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/2.png")
+            .product-list--body
+              %h3.name 2
+              .details
+                %ul
+                  %li 2000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/3.png")
+            .product-list--body
+              %h3.name 3
+              .details
+                %ul
+                  %li 3000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/5.png")
+            .product-list--body
+              %h3.name 5
+              .details
+                %ul
+                  %li 5000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
 
-  -# 後ほど複製
+  %section.picup-container
+    %h2.picup-subtitle ピックアップブランド
+    .product-box
+      .product-head
+        %h3= link_to "アーカイバ", class: "title"
+      .product-lists
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/1.png")
+            .product-list--body
+              %h3.name 1
+              .details
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/2.png")
+            .product-list--body
+              %h3.name 2
+              .details
+                %ul
+                  %li 2000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/3.png")
+            .product-list--body
+              %h3.name 3
+              .details
+                %ul
+                  %li 3000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
+        .product-list
+          %a 
+            %figure.product-list--img
+              =image_tag("/products/5.png")
+            .product-list--body
+              %h3.name 5
+              .details
+                %ul
+                  %li 5000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p (税込)
