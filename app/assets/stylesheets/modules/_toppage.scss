@@ -19,6 +19,7 @@ ul {
   list-style: none;
 }
 
+
 .header{
   padding: 0 60px;
   .header-contents {
@@ -319,9 +320,89 @@ ul {
   }
 
   .picup-container {
-    background-color: lightseagreen;
-    height: 200px;
-    width: 100%;
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+    .picup-subtitle {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .product-box {
+      .product-head {
+        text-align: center;
+        a {
+          font-size: 24px;
+          text-decoration: none;
+          color: #3CCACE;
+          title {
+            font-weight: bold;
+          }
+        }
+      }
+      .product-lists {
+        margin: 26px auto;
+        width: 780px;
+        display: flex;
+        justify-content: space-around;
+        a {
+          text-decoration: none;
+          position: relative;
+        }
+        .product-list {
+          width: 220px;
+          display: inline-block;
+          a {
+            background-color: #fff;
+            display: inline-block;
+            .product-list--img {
+              width: 220px;
+              height: 150px;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              z-index: auto;
+              img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                z-index: auto;
+                height: 150px;
+                object-fit: cover;
+              }
+            }
+            .product-list--body {
+              background-color: white;
+              color: #333;
+              padding: 16px;
+              .name {
+                overflow: hidden;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: left;
+                font-weight: normal;
+              }
+              .details {
+                font-size: 16px;
+                ul {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+                p {
+                  font-size: 10px;
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -358,8 +439,6 @@ ul {
     }
   }
 }
-// icon大きさ
-// 背景画像
 
 .footer {
   background-color:#272727;
@@ -398,5 +477,26 @@ ul {
   }
   p {
     font-size: 14px;
+  }
+}
+
+.purchase-btn {
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon {
+    width: 60%;
   }
 }
