@@ -73,24 +73,24 @@
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false,foreign_key:true|
-|postcode|integer|null:false|
-|prefecture|string|null:false|
-|city|string|null:false|
-|block|string|null:false|
-|building|string|
-|phone_number|integer|
+|user_id|references|null:false|
+|postcode|integer|null:false, dependent:destroy|
+|prefecture|string|null:false, dependent:destroy|
+|city|string|null:false, dependent:destroy|
+|block|string|null:false, dependent:destroy|
+|building|string, dependent:destroy|
+|phone_number|integer, dependent:destroy|
 ### Association
-- has_one :user
+- belongs_to :user
 
 ## credit_cards(PAY.jp)テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false, foreign_key:true|
-|card_number|integer|null:false|
-|valid_date|integer|null:false|
+|user_id|references|null:false|
+|card_number|integer|null:false, dependent:destroy|
+|valid_date|integer|null:false, dependent:destroy|
 ### Association
-- has_one :user
+- belongs_to :user
 
 ## brandsテーブル
 |Column|Type|Options|
