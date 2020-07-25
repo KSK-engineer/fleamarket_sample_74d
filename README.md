@@ -13,11 +13,11 @@
 |birthday_month|integer|null:false|
 |birthday_day|integer|null:false|
 ### Association
-- has_one :address
-- has_one :credit_cards(PAY.jp)
-- has_many :items
-- has_many :likes(中間)
-- has_many :comments(中間)
+- has_one :address, :dependent => :destroy
+- has_one :credit_cards(PAY.jp), :dependent => :destroy
+- has_many :items, :dependent => :destroy
+- has_many :likes(中間), :dependent => :destroy
+- has_many :comments(中間), :dependent => :destroy
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -35,11 +35,11 @@
 |category_id|references|null:false, foreign_key:true|
 ### Association
 - belongs_to :user
-- belongs_to :category
-- belongs_to :brand
-- has_many :images
-- has_many :likes
-- has_many :comments
+- belongs_to :category, :dependent => :destroy
+- belongs_to :brand, :dependent => :destroy
+- has_many :images, :dependent => :destroy
+- has_many :likes, :dependent => :destroy
+- has_many :comments, :dependent => :destroy
 
 ## likes(中間)テーブル
 |Column|Type|Options|
@@ -74,12 +74,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false|
-|postcode|integer|null:false, dependent:destroy|
-|prefecture|string|null:false, dependent:destroy|
-|city|string|null:false, dependent:destroy|
-|block|string|null:false, dependent:destroy|
-|building|string, dependent:destroy|
-|phone_number|integer, dependent:destroy|
+|postcode|integer|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
+|block|string|null:false|
+|building|string|
+|phone_number|integer|
 ### Association
 - belongs_to :user
 
@@ -87,8 +87,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false|
-|card_number|integer|null:false, dependent:destroy|
-|valid_date|integer|null:false, dependent:destroy|
+|card_number|integer|null:false|
+|valid_date|integer|null:false|
 ### Association
 - belongs_to :user
 
