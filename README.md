@@ -29,7 +29,7 @@
 |delivery_area|string|null:false|
 |delivery_days|string|null:false|
 |price|integer|null:false|
-|status|string|null:false|
+|status|enum|null:false|
 |user_id|references|null:false, foreign_key:true|
 |brand_id|references|null:false, foreign_key:true|
 |category_id|references|null:false, foreign_key:true|
@@ -103,5 +103,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
+
 ### Association
 - has_many :items
