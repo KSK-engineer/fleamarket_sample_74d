@@ -14,7 +14,7 @@
 |birthday_day|integer|null:false|
 ### Association
 - has_one :address, :dependent => :destroy
-- has_one :credit_cards(PAY.jp), :dependent => :destroy
+- has_one :credit_card(PAY.jp), :dependent => :destroy
 - has_many :items, :dependent => :destroy
 - has_many :likes(中間), :dependent => :destroy
 - has_many :comments(中間), :dependent => :destroy
@@ -35,8 +35,8 @@
 |category_id|references|null:false, foreign_key:true|
 ### Association
 - belongs_to :user
-- belongs_to :category, :dependent => :destroy
-- belongs_to :brand, :dependent => :destroy
+- belongs_to :category, 
+- belongs_to :brand, 
 - has_many :images, :dependent => :destroy
 - has_many :likes, :dependent => :destroy
 - has_many :comments, :dependent => :destroy
