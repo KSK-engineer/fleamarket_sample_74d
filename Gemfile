@@ -72,5 +72,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :production do
   gem 'unicorn'
 end
+
 gem 'devise'
+gem 'active_hash'
+gem 'ancestry'
+gem 'rubocop', require:false
 gem 'haml-rails'
