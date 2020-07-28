@@ -1,0 +1,41 @@
+.buy__confirmation
+  .buy__confirmation--header
+  .buy__confirmation--info
+    .buy__confirmation--info--title 
+      購入内容の確認
+    .buy__confirmation--info--item
+      .image
+      .name
+        ゲームボーイ
+      .price
+        ¥10,000（税込・送料込）
+
+    = form_with url: items_path, class: 'buy__confirmation--info--form' do |form|
+      .buy__confirmation--info--form--box
+        .box
+          .label 
+            支払金額
+          .data
+            ¥10,000
+      .buy__confirmation--info--form--box
+        .label 
+          支払方法
+        .title
+          クレジットカード
+        .data
+          ************1111
+          01/24
+        .edit
+        = form.submit '変更する', class: 'edit__btn'
+      .buy__confirmation--info--form--box
+        .label 
+          配送先
+        .data
+          〒111-0000
+          北海道札幌市手稲区手稲１−１−１
+          山田　太郎
+        .edit
+        = form.submit '変更する', class: 'edit__btn'
+      .buy__confirmation--info--form--register
+        = form.submit '購入する', class: 'purchase__btn'
+  .buy__confirmation--footer
