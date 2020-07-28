@@ -1,0 +1,33 @@
+.app-banner {
+  background-image: url("/pict/bg-appBanner-pict.jpg");
+  padding: 100px 40px;
+  background-size: cover;
+  background-position: center;
+  .banner-content {
+    color: #fff;
+    text-align: center;
+    &__subtitle {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      .a-icon {
+        width: 170px;
+        margin-top: 14px;
+      }
+      .g-icon {
+        width: 215px;
+      }
+    }
+  }
+}
