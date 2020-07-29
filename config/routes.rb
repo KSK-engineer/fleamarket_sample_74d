@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  root 'cards#new'
-  resources :cards, only: [:new]
+  root 'items#index'
 end
