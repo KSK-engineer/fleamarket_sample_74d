@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'transcations#new'
+  root 'transactions#new'
   resources :cards, only: [:new]
-  resources :transcations, only: [:new]
+  resources :transactions, only: [:new]
 end
