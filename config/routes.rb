@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'transcations#new'
   resources :cards, only: [:new]
-  resources :items, only: [:index]
+  resources :transcations, only: [:new]
 end
