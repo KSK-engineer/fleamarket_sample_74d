@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+
+.breadCrumbs{
+  height: 55px;
+  width: 100%;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  font-size: 14px;
+  padding: 0 200px;
+  line-height: 55px;
+}
+.main{
+  height: 1855px;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 40px;
+  .itemBox{
+    height: 1362px;
+    width: 700px;
+    background-color: #ffffff;
+    margin: auto;
+    padding: 24px 40px 40px;
+    &__name{
+      line-height: 28px;
+      display: inline-block;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      height: 28px;
+      width: 620px;
+      margin-bottom: 15px;
+    }
+    .img{
+      width: 560px;
+      height: 346px;
+      background-color: rgb(163, 112, 77);
+      margin: auto;
+    }
+    ul{
+      height: 87px;
+      width: 560px;
+      margin: auto;
+      position: relative;
+      display: flex;
+      padding: 0px 70px;
+      li{
+        list-style: none;
+        width: 140px;
+        height: 87px;
+        background-color: whitesmoke;
+        border: 1px solid white;
+      }
+    }
+    &__price{
+      height: 77px;
+      width: 620px;
+      margin: 24px 0px;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      .itemBox__price-detail{
+        height: 24px;
+        width: 620px;
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    .itemDetail{
+      height: 162px;
+      width: 620px;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    .details{
+      width: 620px;
+      height: auto;
+      table{
+        width: 100%;
+        margin-bottom: 20px;
+        tr{
+          width: 100%;
+          th{
+            display: table-cell;
+            vertical-align: inherit;
+            padding: 8px;
+            font-size: 14px;
+            text-align: center;
+            width: 20%;
+            background-color: #eeeeee;
+            border: 1px solid #dedede;
+            font-weight: unset;
+          }
+          td{
+            font-size: 14px;
+            padding: 15px;
+            width: 80%;
+            border: 1px solid #dedede;
+          }
+        }
+      }
+    }
+    .option{
+      width: 620px;
+      height: 48px;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+      .fav{
+        height: 36px;
+        width: 150px;
+        list-style: none;
+        padding: 5px 12px;
+        border-radius: 40px;
+        border: 1px solid #ffb340;
+        color: #3ccace;
+        line-height: 22px;
+        cursor: pointer;
+      }
+      .tel{
+        height: 35px;
+        width: 165.89px;
+        font-size: 14px;
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: #333;
+        border: 1px solid #333;
+        text-decoration: none;
+        line-height: 20px;
+        cursor: pointer;
+        .fa-flag{
+          font-weight: bold;
+          color: black;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .commentBox{
+    height: 304px;
+    width: 700px;
+    margin: 10px auto;
+    background-color: #ffffff;
+    padding: 24px;
+    .comment-body{
+      width: 652px;
+      height: 104px;
+      padding: 10px;
+    }
+    .noticeMsg{
+      width: 652px;
+      height: 58px;
+      background-color: #f8f8f8;
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .commentBtn{
+      width: 391.19px;
+      height: 52px;
+      background-color: #3ccace;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 100px;
+      border: #3ccace 1px solid;
+      margin: auto;
+      display: block;
+      cursor: pointer;
+    }
+  }
+  .links{
+    height: 24px;
+    width: 700px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    .link-before{
+      cursor: pointer;
+      color: #3ccace;
+      list-style: none;
+      .before{
+        text-decoration: none;
+        color: #3ccace;
+      }
+    }
+    .link-after{
+      cursor: pointer;
+      color: #3ccace;
+      list-style: none;
+      .after{
+        text-decoration: none;
+        color: #3ccace;
+      }
+    }
+  }
+  .relatedItems{
+    height: 33px;
+    width: 700px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 22px;
+    color: #3ccace;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
