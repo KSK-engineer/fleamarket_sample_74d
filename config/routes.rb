@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'cards#new'
+  root 'items#index'
   resources :users, only: :index
   resources :cards, only: [:new]
+  resources :items, only: [:index, :show]
 end
