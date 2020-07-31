@@ -1,23 +1,5 @@
-.pcHeader
-  .headerInner
-    .mainheader
-      .icon
-        %a.logo
-      .searchBox
-        %input.search-form{name: "keyword", placeholder: "キーワードから探す", type: "text", value: ""}
-        %button.btn-search{title: "検索", type: "submit"}
-          = icon("fa","search",class: "search-form__icon")
-    .nav
-      .listsLeft
-        .listsLeft__item
-          カテゴリー
-        .listsLeft__content
-          ブランド
-      .listRight
-        .listRight__item
-          ログイン
-        .listRight__content
-          新規会員登録
+= render 'header'
+
 .breadCrumbs
   FURIMA   >   レディース   >   トップス   >   Tシャツ/カットソー(半袖/袖なし)   >   product1
 
@@ -109,6 +91,6 @@
   .relatedItems
     メンズをもっと見る
     
-.appBanner
-  %span.back
-.footer
+= render 'banner'
+= render 'footer'
+= render 'sell_btn'
