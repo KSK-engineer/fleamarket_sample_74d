@@ -73,10 +73,11 @@ group :production do
   gem 'unicorn'
 end
 
+
 gem 'devise'
 gem "font-awesome-sass"
-
 gem 'active_hash'
 gem 'ancestry'
 gem 'rubocop', require:false
 gem 'haml-rails'
+
