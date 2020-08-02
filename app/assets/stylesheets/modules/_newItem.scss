@@ -1,0 +1,503 @@
+* {
+  box-sizing: border-box;
+}
+
+.post-item{
+  background-color: rgb(245, 245, 245);
+  .logo{
+    height: 128px;
+    width: 100%;
+    padding: 40px;
+    .furima-logo{
+      height: 55px;
+      width: 190px;
+      margin: auto;
+      color: #3ccace;
+      font-weight: bold;
+      line-height: 55px;
+      text-align: center;
+      background-image: url("/material/logo/logo.png");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .item-details{
+    height: 2179px;
+    width: 700px;
+    margin: auto;
+    .item-img{
+      height: 300px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      margin-bottom: 1px;
+      .img-title{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .img-setumei{
+        height: 19px;
+        width: 620px;
+        margin-top: 16px;
+        font-size: 14px;
+      }
+      .img{
+        display: inline-block;
+        height: 150px;
+        width: 620px;
+        background-color: rgb(245, 245, 245);
+        margin-top: 8px;
+        border-style: dashed;
+        border-width: 1px;
+        border-color: rgb(204, 204, 204);
+        cursor: pointer;
+        padding-top: 55px;
+        .img-file{
+          height: 150px;
+          width: 620px;
+          display: none;
+        }
+        .fa-camera{
+          display: block;
+          height: 20px;
+          width: 20px;
+          margin: auto;
+          font-size: 20px;
+        }
+        .drag-drop{
+          height: 32px;
+          width: 618px;
+          font-size: 12px;
+          text-align: center;
+          margin-top: 5px;
+        }
+      }
+    }
+    .item-name{
+      height: 416px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      margin-bottom: 1px;
+      .name-title{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .name{
+        height: 48px;
+        width: 620px;
+        margin-top: 16px;
+        border: 1px solid #ccc;
+        padding: 0px 16px;
+        border-radius: 3px;
+        font-size: 15px;
+      }
+      .setumei-title{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        margin-top: 30px;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .setumei-form{
+        height: 154px;
+        width: 620px;
+        margin-top: 16px;
+        padding: 13px 16px;
+        border: 1px solid #ccc;
+      }
+      .text-number{
+        height: 16px;
+        width: 620px;
+        margin-top: 16px;
+        font-size: 12px;
+        color: #888888;
+        text-align: right;
+      }
+    }
+    .item-category{
+      height: 444px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      margin-bottom: 1px;
+      .title{
+        font-size: 14px;
+        color: #888888;
+        font-weight: bold;
+        height: 19px;
+        width: 620px;
+      }
+      .category-title{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        margin-top: 30px;
+        color: black;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .categorys{
+        height: 48px;
+        width: 620px;
+        padding: 0px 56px 0px 16px;
+        font-size: 16px;
+        margin-top: 10px;
+        color: #888888;
+      }
+      .brand-title{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        margin-top: 30px;
+        .any{
+          height: 19px;
+          width: 32px;
+          background-color: #3ccace;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .brands{
+        height: 48px;
+        width: 620px;
+        padding: 0px 16px;
+        margin-top: 10px;
+      }
+      .item-condition{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        margin-top: 30px;
+        color: black;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .condition{
+        height: 48px;
+        width: 620px;
+        padding: 0px 56px 0px 16px;
+        font-size: 16px;
+        margin-top: 10px;
+        color: #888888;
+      }
+    }
+    .item-deli{
+      height: 444px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      margin-bottom: 1px;
+      .deli-title{
+        font-size: 14px;
+        color: #888888;
+        font-weight: bold;
+        height: 19px;
+        width: 620px;
+        .fa-question-circle{
+          color: #3ccace;
+        }
+      }
+      .deli-price{
+        height: 19px;
+        width: 620px;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        margin-top: 30px;
+        color: black;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .price{
+        height: 48px;
+        width: 620px;
+        padding: 0px 16px;
+        margin-top: 10px;
+        color: #888888;
+      }
+      .deli-area{
+          height: 19px;
+          width: 620px;
+          font-weight: bold;
+          font-size: 14px;
+          display: flex;
+          margin-top: 30px;
+          color: black;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .area{
+        height: 48px;
+        width: 620px;
+        padding: 0px 16px;
+        margin-top: 10px;
+        color: #888888;
+      }
+      .deli-days{
+          height: 19px;
+          width: 620px;
+          font-weight: bold;
+          font-size: 14px;
+          display: flex;
+          margin-top: 30px;
+          color: black;
+        .must{
+          height: 19px;
+          width: 32px;
+          background-color: #ff0211;
+          color: white;
+          margin-left: 8px;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 3px;
+        }
+      }
+      .days{
+        height: 48px;
+        width: 620px;
+        padding: 0px 16px;
+        margin-top: 10px;
+        color: #888888;
+      }
+    }
+    .item-price{
+      height: 270px;
+      width: 100%;
+      padding: 40px 40px 0px 40px;
+      background-color: #ffffff;
+      .price-title{
+        font-size: 14px;
+        color: #888888;
+        font-weight: bold;
+        height: 19px;
+        width: 620px;
+        margin-bottom: 24px;
+      }
+      .fa-question-circle{
+        color: #3ccace;
+      }
+      .sells{
+        height: 58px;
+          width: 620px;
+          display: flex;
+          color: black;
+          align-items: center;
+        .sell-price{
+          height: 19px;
+          width: 96px;
+          font-weight: bold;
+          font-size: 14px;
+          display: flex;
+          margin-right: 220px;
+          color: black;
+          .must{
+            height: 19px;
+            width: 32px;
+            background-color: #ff0211;
+            color: white;
+            margin-left: 8px;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 3px;
+          }
+        }
+        .price{
+          width: 285px;
+          height: 48px;
+          padding: 0px 16px;
+          margin-left: 8px;
+          border: #ccc solid 1px;
+          border-radius: 4px;
+          font-size: inherit;
+        }
+      }
+      .fee{
+        height: 70px;
+        width: 620px;
+        font-size: 14px;
+        display: flex;
+        line-height: 70px;
+        border-bottom: 1px solid #ccc;
+      }
+      .profit{
+        height: 58px;
+        width: 620px;
+        font-size: 14px;
+        padding-top: 12px;
+        color: black;
+        line-height: 46px;
+      }
+    }
+    .btns-content{
+      height: 300px;
+      width: 100%;
+      background-color: #ffffff;
+      .btns{
+        height: 168px;
+        width: 360px;
+        margin: auto;
+        .sale-btn{
+          height: 48px;
+          width: 360px;
+          background-color: #ea352e;
+          border: none;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 17px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .draft-btn{
+          height: 48px;
+          width: 360px;
+          background-color: #cccccc;
+          border: none;
+          border-radius: 4px;
+          font-size: 17px;
+          font-weight: 600;
+          margin-top: 24px;
+          color: #222222;
+          cursor: pointer;
+        }
+        .back-btn{
+          font-size: 14px;
+          display: inline-block;
+          color: #0095ee;
+          margin: 24px 0px 0px 160px;
+        }
+      }
+      .precautions{
+        height: 67px;
+        width: 620px;
+        margin: auto;
+        font-size: 12px;
+        padding-top: 33px;
+      }
+    }
+  }
+  .newitem-footer{
+    height: 220px;
+    width: 100%;
+    padding: 40px 0px 41px 0px;
+    .notes{
+      height: 14px;
+      width: 395px;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      .privacy{
+        height: 14px;
+        width: 120px;
+        font-size: 12px;
+        color: #333333;
+      }
+      .terms{
+        height: 14px;
+        width: 96px;
+        font-size: 12px;
+      }
+      .notation{
+        height: 14px;
+        width: 132px;
+        font-size: 12px;
+      }
+    }
+    .foot-logo{
+      height: 60px;
+      width: 210px;
+      background-image: url("/material/logo/logo-white.png");
+      background-size: cover;
+      background-position: center;
+      margin: auto;
+      margin-top: 35px;
+    }
+    .inc{
+      height: 12px;
+      width: 85px;
+      font-size: 11px;
+      color: #333333;
+      margin: auto;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+}
