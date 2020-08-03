@@ -1,6 +1,9 @@
 @import "reset";
+@import "transactions";
+@import "modules/users";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "registration";
 @import "toppages/body";
 @import "toppages/header";
 @import "toppages/main";
@@ -10,3 +13,4 @@
 @import "modules/showItem";
 @import "modules/newItem";
 @import "cards";
+
