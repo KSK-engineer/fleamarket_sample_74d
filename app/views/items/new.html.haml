@@ -85,26 +85,9 @@
         .must
           必須
       %select.area
-        %option{label:"選択して下さい"}
-        %option{label:"北海道",value:""}
-        %option{label:"青森県",value:""}
-        %option{label:"岩手県",value:""}
-        %option{label:"宮城県",value:""}
-        %option{label:"秋田県",value:""}
-        %option{label:"山形県",value:""}
-        %option{label:"福島県",value:""}
-        %option{label:"茨城県",value:""}
-        %option{label:"栃木県",value:""}
-        %option{label:"群馬県",value:""}
-        %option{label:"埼玉県",value:""}
-        %option{label:"千葉県",value:""}
-        %option{label:"東京都",value:""}
-        %option{label:"神奈川県",value:""}
-        %option{label:"新潟県",value:""}
-        %option{label:"富山県",value:""}
-        %option{label:"石川県",value:""}
-        %option{label:"福井県",value:""}
-        %option{label:"山梨県",value:""}
+        = @address.each do |address|
+          %option{value: ""}
+            = address.name
       .deli-days
         発送までの日数
         .must
