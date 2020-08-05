@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @address = Prefecture.all
   end
   
   def show
