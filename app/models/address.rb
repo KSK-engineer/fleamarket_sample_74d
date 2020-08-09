@@ -1,4 +1,4 @@
 class Address < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :prefecture
+  belongs_to_active_hash :prefecture
 end

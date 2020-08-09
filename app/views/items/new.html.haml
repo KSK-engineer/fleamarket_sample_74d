@@ -1,0 +1,135 @@
+.post-item
+  .logo
+    .furima-logo
+  .item-details
+    .item-img
+      .img-title
+        出品画像
+        .must
+          必須
+      .img-setumei
+        最大10枚までアップロードできます
+      %label.img
+        %input.img-file{name: "file", placeholder: "ドラックアンドドロップ", type: "file", autocomplete: "off", value: "", id:"file-upload-button"}
+        %i.fas.fa-camera
+        .drag-drop
+          ドラックアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
+    .item-name
+      .name-title
+        商品名
+        .must
+          必須
+      %input.name{type:"text", placeholder:"40文字まで"}
+      .setumei-title
+        商品の説明
+        .must
+          必須
+      %textarea.setumei-form{placeholder:"商品の説明（必須 1,000文字以内）"}
+      .text-number
+        0/1000
+    .item-category
+      .title
+        商品の詳細
+      .category-title
+        カテゴリー
+        .must
+          必須
+      %select.categorys
+        %option{label:"選択して下さい"}
+        %option{label:"レディース", value:"1"}
+        %option{label:"メンズ", value:"2"}
+        %option{label:"ベビー・キッズ", value:"3"}
+        %option{label:"インテリア・住まい・小物", value:"4"}
+        %option{label:"本・音楽・ゲーム", value:"5"}
+        %option{label:"おもちゃ・ホビー・グッズ", value:"6"}
+        %option{label:"コスメ・香水・美容", value:"7"}
+        %option{label:"家電・スマホ・カメラ", value:"8"}
+        %option{label:"スポーツ・レジャー", value:"9"}
+        %option{label:"ハンドメイド", value:"10"}
+        %option{label:"チケット", value:"11"}
+        %option{label:"自動車・オートバイ", value:"12"}
+        %option{label:"その他", value:"13"}
+      .brand-title
+        ブランド
+        .any
+          任意
+      %input.brands{placeholder:"例）シャネル"}
+      .item-condition
+        商品の状態
+        .must
+          必須
+      %select.condition
+        %option{label:"選択して下さい"}
+        %option{label:"新品・未使用", value:"1"}
+        %option{label:"未使用に近い", value:"2"}
+        %option{label:"目立った傷や汚れなし", value:"3"}
+        %option{label:"やや傷や汚れあり", value:"4"}
+        %option{label:"傷や汚れあり", value:"5"}
+        %option{label:"全体的に状態が悪い", value:"6"}
+    .item-deli
+      .deli-title
+        配送について
+        %i.far.fa-question-circle
+      .deli-price
+        配送料の負担
+        .must
+          必須
+      %select.price
+        %option{label:"選択して下さい"}
+        %option{label:"送料込み（出品者負担）",value:"1"}
+        %option{label:"着払い（購入者負担）",value:"2"}
+      .deli-area
+        発送元の地域
+        .must
+          必須
+      %select.area
+        = @address.each do |address|
+          %option{value: ""}
+            = address.name
+      .deli-days
+        発送までの日数
+        .must
+          必須
+      %select.days
+        %option{label:"選択して下さい"}
+        %option{label:"1~2日で発送",value:"1"}
+        %option{label:"2~3日で発送",value:"2"}
+        %option{label:"4~7日で発送",value:"3"}
+    .item-price
+      .price-title
+        価格（¥300〜9,999,999）
+        %i.far.fa-question-circle
+      .sells
+        .sell-price
+          販売価格
+          .must
+            必須
+        ¥
+        %input.price{type:"number", placeholder:"                                         0"}
+      .fee
+        販売手数料（10%）
+      .profit
+        販売利益
+    .btns-content
+      .btns
+        %button.sale-btn
+          出品する
+        %button.draft-btn
+          下書きに保存
+        %a.back-btn
+          もどる
+      .precautions
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  .newitem-footer
+    .notes
+      .privacy
+        プライバシーポリシー
+      .terms
+        メルカリ利用規約
+      .notation
+        特定商取引に関する取引
+    .foot-logo
+    .inc
+      ©️ FURIMA.Inc
