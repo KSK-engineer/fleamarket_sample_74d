@@ -22,7 +22,7 @@
 |------|----|-------|
 |name|string|null:false|
 |detail|text|null:false|
-|condition|string|null:false|
+|condition(acitve_hash)|string|null:false|
 |delivery_fee|string|null:false|
 |delivery_area|string|null:false|
 |delivery_days|string|null:false|
@@ -74,7 +74,7 @@
 |------|----|-------|
 |user_id|references|null:false|
 |postcode|integer|null:false|
-|prefecture|string|null:false|
+|prefecture_id(acitve_hash)|integer|null: false|
 |city|string|null:false|
 |block|string|null:false|
 |building|string|
