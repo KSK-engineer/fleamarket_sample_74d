@@ -9,9 +9,7 @@
 |firstname_kanji|string|null:false|
 |familyname_kana|string|null:false|
 |firstname_kana|string|null:false|
-|birthday_year|integer|null:false|
-|birthday_month|integer|null:false|
-|birthday_day|integer|null:false|
+|birthday|date|null:false|
 ### Association
 - has_one :address, :dependent => :destroy
 - has_one :credit_card(PAY.jp), :dependent => :destroy
@@ -30,7 +28,8 @@
 |delivery_days|string|null:false|
 |price|integer|null:false|
 |status|enum|null:false|
-|user_id|references|null:false, foreign_key:true|
+|seller_id|references|null:false, foreign_key:true|
+|buyer_id|references|null:false, foreign_key:true|
 |brand_id|references|null:false, foreign_key:true|
 |category_id|references|null:false, foreign_key:true|
 ### Association
@@ -44,7 +43,7 @@
 ## likes(中間)テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false, foreign_key:true|
+|buyer_id|references|null:false, foreign_key:true|
 |item_id|references|null:false, foreign_key:true|
 ### Association
 - belongs_to :user
@@ -54,7 +53,7 @@
 ## comments(中間)テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false, foreign_key:true|
+|buyer_id|references|null:false, foreign_key:true|
 |item_id|references|null:false, foreign_key:true|
 |comment|text|null:false|
 ### Association
