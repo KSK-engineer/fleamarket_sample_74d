@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   resources :registration, only: [:new, :index]
   resources :items, only: [:index, :show]
   resources :users, only: :index
-  resources :cards, only: [:new]
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :items, only: [:index, :show]
   resources :transactions, only: [:new]
 
