@@ -4,23 +4,49 @@
       %nav.content_nav
         %ul.content-nav-list
           %li
-            = link_to "http://localhost:3000/registration/" do
+            = link_to registration_index_path do
               登録情報
               %i.icon-arrow-right
           %li
-            = link_to "http://localhost:3000/cards/new" do
+            = link_to new_card_path do
               クレジットカード
               %i.icon-arrow-right
+          %li
+            = link_to new_item_path do
+              出品する
+              %i.icon-arrow-right    
           %li
             = link_to "" do
               出品商品情報
               %i.icon-arrow-right
           %li
             = link_to "" do
-              購入商品情報
+              購入済商品
               %i.icon-arrow-right
           %li
-            = link_to "http://localhost:3000/items" do
+            = link_to new_transaction_path do
+              取引中商品
+              %i.icon-arrow-right    
+          %li
+            = link_to "" do
+              いいね！一覧
+              %i.icon-arrow-right
+          %li
+            = link_to "" do
+              ガイド
+              %i.icon-arrow-right
+          %li
+            = link_to "" do
+              お問い合わせ
+              %i.icon-arrow-right
+          %li
+            = link_to items_path do
+              ログアウト
+              %i.icon-arrow-right
+          .setting
+          設定
+          %li
+            = link_to items_path do
               ログアウト
               %i.icon-arrow-right
     .right-content
@@ -29,7 +55,7 @@
         
         .data
           KSK mypage
-          現在の出品数 【０】
+          現在の出品数   【０】
 
 
         
