@@ -26,7 +26,7 @@
           ************1111
           01/24
         .edit
-        = form.submit '変更する', class: 'edit__btn'
+          = link_to "変更する", new_card_path, class: 'edit__btn'
       .buy__confirmation--info--form--box
         .label 
           配送先
@@ -35,7 +35,8 @@
           北海道札幌市手稲区手稲１−１−１
           山田　太郎
         .edit
-        = form.submit '変更する', class: 'edit__btn'
+          = link_to "変更する", new_registration_path, class: 'edit__btn'
       .buy__confirmation--info--form--register
-        = form.submit '購入する', class: 'purchase__btn'
+        = link_to "購入する", root_path, class: 'purchase__btn'
+        //= form.submit '購入する', class: 'purchase__btn'
   .buy__confirmation--footer

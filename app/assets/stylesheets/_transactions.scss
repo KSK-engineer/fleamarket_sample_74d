@@ -47,28 +47,40 @@
         padding: 10px 20px 10px;
       }
 
-      .edit__btn {
+      .edit {
         width: 70px;
-        height: 20px;
-        font-size: 10px;
+        height: 30px;
+        line-height: 30px;
+        margin: 10px auto;
+        font-size: 12px;
+        background-color: gray;
         font-weight: bold;
         border-radius: 4px;
+      }
+
+      .edit__btn {
+        text-decoration: none;
+        color: white;
         cursor: pointer;
       }
 
       &--register {
-        padding: 30px 0 10px;
+        margin: 0 auto;
         text-align: center;
-      }
-
-      .purchase__btn {
         width: 100px;
         height: 50px;
+        line-height: 50px;
         font-size: 18px;
         font-weight: bold;
         color:white;
         background-color: red;
         border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .purchase__btn {
+        text-decoration: none;
+        color:white;
         cursor: pointer;
       }
     }
