@@ -78,7 +78,7 @@
       .image{
         height: 300px;
         width: 100%;
-        background-image: url("pict/bg-appBanner-pict.jpg");
+        background-image: url("/pict/bg-appBanner-pict.jpg");
         background-size: contain;
         background-repeat: no-repeat;
         display: flex;
@@ -91,7 +91,7 @@
           height: 50px;
           width: 50px;
           z-index: 2;
-          background-image: url("icon/icon_camera.png");
+          background-image: url("/icon/icon_camera.png");
           background-size: contain;
           background-repeat: no-repeat;
         }
