@@ -3,12 +3,6 @@
   height: 100vh;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 
-  &--header {
-    width: 100vw;
-    height: 100px;
-    background-color: gray;
-  }
-
   &--info {
     width: 100vw;
     height: 500px;
@@ -83,12 +77,6 @@
       }
     }
 
-  }
-
-  &--footer {
-    width: 100vw;
-    height: 100px;
-    background-color: gray;
   }
 }
 

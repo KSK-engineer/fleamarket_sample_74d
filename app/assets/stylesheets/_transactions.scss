@@ -4,17 +4,11 @@
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   background-color: #f8f8f8;
 
-  &--header {
-    width: 100vw;
-    height: 100px;
-    background-color: gray;
-  }
-
   &--info {
     width: 100vw;
     height: 700px;
     font-weight: bold;
-    background-color: #ffffff;
+    background-color:#f8f8f8;
 
     &--title {
       width: 100vw;
@@ -84,11 +78,5 @@
         cursor: pointer;
       }
     }
-  }
-
-  &--footer {
-    width: 100vw;
-    height: 100px;
-    background-color: gray;
   }
 }
