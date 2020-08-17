@@ -22,7 +22,7 @@
 |------|----|-------|
 |name|string|null:false|
 |detail|text|null:false|
-|condition(acitve_hash)|string|null:false|
+|condition(active_hash)|string|null:false|
 |delivery_fee|string|null:false|
 |delivery_area|string|null:false|
 |delivery_days|string|null:false|

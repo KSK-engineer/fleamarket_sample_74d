@@ -1,0 +1,7 @@
+<div class="content">
+  <p><%= item.name %></p>
+  <p><%= item.price %>円</p>
+  <% item.images.each do |image| %>
+    <%= image_tag image.src.url %>
+  <% end %>
+</div>

@@ -80,4 +80,6 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'rubocop', require:false
 gem 'haml-rails'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
