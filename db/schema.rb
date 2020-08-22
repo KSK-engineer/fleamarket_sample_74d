@@ -12,6 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2020_08_05_133628) do
 
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "detail", null: false
+    t.string "condition", null: false
+    t.string "delivery_fee", null: false
+    t.string "delivery_area", null: false
+    t.string "delivery_days", null: false
+    t.integer "price", null: false
+    t.string "status", null: false
+    t.bigint "user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
