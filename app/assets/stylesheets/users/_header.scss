@@ -1,0 +1,15 @@
+.account-header {
+  height: 150px;
+  background-color: rgba(233, 229, 229, 0.879);
+
+  .header-logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    line-height: 95px;
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+}

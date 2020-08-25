@@ -2,15 +2,22 @@
 @import "transactions";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "user";
+
+@import "users/header";
+@import "users/registration";
+@import "users/session";
+@import "users/footer";
+
 @import "toppages/body";
 @import "toppages/header";
 @import "toppages/main";
 @import "toppages/banner";
 @import "toppages/footer";
 @import "toppages/sell_btn";
+
 @import "modules/users";
 @import "modules/showItem";
 @import "modules/newItem";
+
 @import "cards";
 
