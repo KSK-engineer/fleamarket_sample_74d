@@ -1,0 +1,74 @@
+.account-main {
+  width: 650px;
+  margin: 0 auto;
+  background-color: white;
+  .account-top
+    .account-top__title{
+      padding: 50px;
+      font-size:30px;
+      text-align: center;
+    }
+  .account-contents {
+    .account-input {
+      margin-bottom: 30px;
+      &__title {
+        font-size:24px;
+        text-align: left;
+        padding: 25px 0;
+      }
+      &__text {
+        margin: 20px;
+      }
+      &__form {
+        margin-left: 20px;
+        text-align: left;
+      }
+      .input-default {
+        font-size:16px;
+        margin: 10px
+      }
+      .form-require {
+        background-color: rgb(235, 50, 50);
+        color: #ffffff;
+        padding: 3px;
+        font-size: 15px;
+        border-radius: 2px;
+      }
+      // 任意項目の記述
+      // 現時点、不必要なのでコメントアウト
+
+      //  .form-require-not{
+      //     display: inline-block;
+      //     background-color: rgb(80, 71, 71);
+      //     color: #ffffff;
+      //     padding: 3px;
+      //     font-size: 15px;
+      //     border-radius: 2px;
+      //     vertical-align: bottom;
+      //   }
+      .field-birthday {
+        margin-top: 10px;
+        .birthday-box {
+          margin: 10px 15px;
+        }
+      }
+    }
+  }
+  .account-text {
+    font-size: 17px;
+    text-align: center;
+    padding-top: 50px;
+  }
+  .account-submit {
+    text-align: center;
+    .submit-form {
+      font-size: 25px;
+      height: 50px;
+      width: 300px;
+      margin: 60px;
+      background-color: #1dbcc7;
+      color: white;
+      border: none;
+    }
+  }
+}
