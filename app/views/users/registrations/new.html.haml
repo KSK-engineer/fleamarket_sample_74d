@@ -30,7 +30,7 @@
             = f.label :password_confirmation, "パスワード(確認)"
             %span.form-require 必須
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '7文字以上', class:"input-default"
-          
+            
     .account-input
       %h3.account-input__title ２．本人確認
       %p.account-input__text
@@ -69,7 +69,6 @@
     
     .account-submit
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "users/shared/error_messages", resource: @user
-        = f.submit "登録する", url: "address_path", class: "submit-form"
+        = f.submit "登録する", class: "submit-form"
 
 =render "users/shared/account_footer"
