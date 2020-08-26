@@ -73,19 +73,32 @@
         border-color: rgb(204, 204, 204);
         cursor: pointer;
         padding-top: 55px;
-        .img-file{
+        
+        &__file{
           height: 150px;
           width: 620px;
           display: none;
+          opacity: 0;
         }
-        .fa-camera{
-          display: block;
-          height: 20px;
-          width: 20px;
-          margin: auto;
-          font-size: 20px;
-          z-index: 1;
+        
+        &__image{
+          height: 50px;
+          width: 50px;
+          font-family: "Font awesome 6 Free";
+        
+          &__item{
+            font-family: "Font awesome 6 Free";
+            display: flex;
+            font-weight: bold;
+            height: 40px;
+            width: 40px;
+            margin: 0 auto;
+            font-size: 20px;
+            color: block;
+            cursor: pointer;
+          }
         }
+        
         .drag-drop{
           height: 32px;
           width: 618px;

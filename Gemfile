@@ -75,7 +75,8 @@ end
 
 
 gem 'devise'
-gem "font-awesome-sass"
+gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'ancestry'
 gem 'rubocop', require:false

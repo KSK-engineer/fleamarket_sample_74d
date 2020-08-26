@@ -15,8 +15,10 @@ class ItemsController < ApplicationController
   end
   
   def create
+    
     @address = Prefecture.all
     @item = Item.new(item_params)
+
     if @item.save!
       redirect_to root_path, notice: "登録に成功しました"
     else
@@ -43,7 +45,7 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.permit(:name, :detail, :prefecture_id, :condition, :delivery_fee, :delivery_area, :delivery_days, :price, :brand_id, :category_id, images_attributes_id:  [:src, :_destroy, :id])
+    params.require(:item).permit(:name, :detail, :prefecture_id, :condition, :delivery_fee, :delivery_day, :price, :seller_id, :buyer_id, :brand_id, :category_id, images_attributes_id:  [:src, :_destroy, :id])
   end
   
   def set_item

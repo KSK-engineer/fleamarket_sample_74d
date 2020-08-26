@@ -12,14 +12,20 @@
             必須
         .img-setumei
           最大10枚までアップロードできます
-        %label.img  
-          =f.file_field :image, class: 'img-file' do
-            =icon('fas','fa-camera', class: 'fa-camera')
+        .img 
+          = f.file_field :image, class: 'img__file' 
+          = f.label :image, class: 'img__image' do
+            = icon("fas","camera", class: 'img__image__item')
           .drag-drop
             ドラックアンドドロップ
             %br
             またはクリックしてファイルをアップロード
-      
+      -# .input-box
+      -#   = f.text_field :text, class: 'input-box__text', placeholder: 'type a message'
+      -#   = f.label :image, class: 'input-box__image' do
+      -#     = icon('fas','image', class: 'icon')
+      -#     = f.file_field :image, class: 'input-box__hidden'
+      -# = f.submit 'Send', class: 'submit-btn' 
       .item-name
         
         .name-title
@@ -78,7 +84,7 @@
           発送までの日数
           .must
             必須
-        = f.select :delivery_day, Item.delivery_days.keys,class: 'days'
+        = f.select :delivery_day, Item.delivery_days.keys, class: 'days'
          
       .item-price
         .price-title
