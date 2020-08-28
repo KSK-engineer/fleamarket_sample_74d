@@ -4,71 +4,67 @@
   .account-top
     %h2.account-top__title
       新規会員登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class: "registration-form"}) do |f|
+      = render "users/shared/error_messages", resource: @user
+      .account-contents
+        .account-input
+          %h3.account-input__title １．ユーザー情報
+          .account-input__form
+            .field
+              = f.label :nickname, "ニックネーム"
+              %span.form-require 必須
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例) フリマ太郎", class:"input-default"
+            .field
+              = f.label :email, "メールアドレス"
+              %span.form-require 必須
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class:"input-default"
+            .field
+              = f.label :password, "パスワード"
+              %span.form-require 必須
+              - if @minimum_password_length
+                %em
+                  -# (#{@minimum_password_length} characters minimum)
+              = f.password_field :password, autocomplete: "new-password", placeholder: '7文字以上', class:"input-default"
+            .field
+              = f.label :password_confirmation, "パスワード(確認)"
+              %span.form-require 必須
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '7文字以上', class:"input-default"
+              
+        .account-input
+          %h3.account-input__title ２．本人確認
+          %p.account-input__text
+            安心・安全にご利用いただくために、
+            %br
+            お客さまの本人情報の登録にご協力ください。
+            %br
+            他のお客さまに公開されることはありません。
+          .account-form
+            .field
+              = f.label "お名前(全角)"
+              %span.form-require 必須
+              = f.text_field :familyname_kanji, autofocus: true, autocomplete: "family-name", placeholder: "例) 山田", class:"input-default"
+              = f.text_field :firstname_kanji, autofocus: true, autocomplete: "given-name", placeholder: "例) 太郎", class:"input-default"
+            .field
+              = f.label "お名前(カナ)"
+              %span.form-require 必須
+              = f.text_field :familyname_kana, autofocus: true, autocomplete: "family-name", placeholder: '例) ヤマダ', class:"input-default"
+              = f.text_field :firstname_kana, autofocus: true, autocomplete: "given-name", placeholder: '例) タロウ', class:"input-default"
+            .field-birthday
+              = f.label "生年月日"
+              %span.form-require 必須
+              %br/
+              .birthday-box
+                .select-wrap
+                  = raw sprintf(f.date_select(:birthday, with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
 
-  .account-contents
-    .account-input
-      %h3.account-input__title １．ユーザー情報
-      .account-input__form
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "users/shared/error_messages", resource: @user
-          .field
-            = f.label :nickname, "ニックネーム"
-            %span.form-require 必須
-            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例) フリマ太郎", class:"input-default"
-          .field
-            = f.label :email, "メールアドレス"
-            %span.form-require 必須
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class:"input-default"
-          .field
-            = f.label :password, "パスワード"
-            %span.form-require 必須
-            - if @minimum_password_length
-              %em
-                -# (#{@minimum_password_length} characters minimum)
-            = f.password_field :password, autocomplete: "new-password", placeholder: '7文字以上', class:"input-default"
-          .field
-            = f.label :password_confirmation, "パスワード(確認)"
-            %span.form-require 必須
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '7文字以上', class:"input-default"
-            
-    .account-input
-      %h3.account-input__title ２．本人確認
-      %p.account-input__text
-        安心・安全にご利用いただくために、
-        %br
-        お客さまの本人情報の登録にご協力ください。
-        %br
-        他のお客さまに公開されることはありません。
-      .account-form
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "users/shared/error_messages", resource: @user
-          .field
-            = f.label "お名前(全角)"
-            %span.form-require 必須
-            = f.text_field :familyname_kanji, autofocus: true, autocomplete: "family-name", placeholder: "例) 山田", class:"input-default"
-            = f.text_field :firstname_kanji, autofocus: true, autocomplete: "given-name", placeholder: "例) 太郎", class:"input-default"
-          .field
-            = f.label "お名前(カナ)"
-            %span.form-require 必須
-            = f.text_field :familyname_kana, autofocus: true, autocomplete: "family-name", placeholder: '例) ヤマダ', class:"input-default"
-            = f.text_field :firstname_kana, autofocus: true, autocomplete: "given-name", placeholder: '例) タロウ', class:"input-default"
-          .field-birthday
-            = f.label "生年月日"
-            %span.form-require 必須
-            %br/
-            .birthday-box
-              .select-wrap
-                = raw sprintf(f.date_select(:birthday, with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
-
-    %p.account-text
-      「登録する」のボタンを押すことにより、
-      = link_to "利用規約", "#" , target:"_blank"
-      に
-      %br
-      同意したものとみなします 
-    
-    .account-submit
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = f.submit "登録する", class: "submit-form"
+        %p.account-text
+          「登録する」のボタンを押すことにより、
+          = link_to "利用規約", "#"
+          に
+          %br
+          同意したものとみなします 
+        
+        .account-submit
+          = f.submit "登録する", class: "submit-form"
 
 =render "users/shared/account_footer"
