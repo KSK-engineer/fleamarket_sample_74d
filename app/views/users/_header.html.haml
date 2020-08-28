@@ -17,7 +17,15 @@
         %li.left-box__item
           =link_to "ブランド"
       %ul.right-box
-        %li.right-box__item.right-box__item--login
-          =link_to "ログイン"
-        %li.right-box__item.right-box__item--new
-          =link_to "新規会員登録"
+        - if user_signed_in?
+          %li.right-box__item.right-box__item--login
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.right-box__item.right-box__item--new
+            =link_to "マイページ", "/users"
+        - else
+          %li.right-box__item.right-box__item--login
+            =link_to new_user_session_path do
+              ログイン
+          %li.right-box__item.right-box__item--new
+            =link_to new_user_registration_path do
+              新規会員登録
