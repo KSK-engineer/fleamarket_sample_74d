@@ -1,4 +1,8 @@
-.header{
+.top-header{
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
   padding: 0 60px;
   .header-contents {
     max-width: 1040px;
@@ -60,6 +64,7 @@
           text-decoration: none;
           display: flex;
           line-height: 38px;
+          padding: 0 0 0 16px;
         }
         &__item--left {
           padding: 0 
