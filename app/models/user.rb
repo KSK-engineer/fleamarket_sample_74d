@@ -12,11 +12,10 @@ class User < ApplicationRecord
 
   validates :nickname,           presence: true
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email,              presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  # 正規表現
+  validates :email, uniqueness: true
 
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
-  validates :encrypted_password, presence: true, length: { minimum: 7 }, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, length: { minimum: 7 }
 
   validates :familyname_kanji,   presence: true, format: {with: /\A[^ -~｡-ﾟ]+\z/,}
   validates :firstname_kanji,    presence: true, format: {with: /\A[^ -~｡-ﾟ]+\z/,}
