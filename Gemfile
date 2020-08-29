@@ -82,3 +82,4 @@ gem 'ancestry'
 gem 'rubocop', require:false
 gem 'haml-rails'
 
+gem 'querly'
