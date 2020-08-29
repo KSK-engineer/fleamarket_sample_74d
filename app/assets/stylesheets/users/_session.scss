@@ -1,0 +1,47 @@
+.sessions-main{
+  width: 650px;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  .registration-text {
+    padding: 60px 0;
+    font-size: 13px;
+    a {
+      text-decoration: none;
+    }
+    .registration-btn {
+      height: 50px;
+      width: 350px;
+      background-color: #1dbcc7;
+      margin: auto;
+      margin-top: 10px;
+      color: white;
+      line-height: 50px;
+      font-size: 15px;
+    }
+  }
+    
+  .session-form{
+    form {
+      align-items: center;
+    }
+    input {
+      height: 50px;
+      width: 340px;
+      border-radius: 4px;
+      border: 1px solid #CCCCCC;
+      padding-left: 10px;
+      font-size: 15px;
+      margin-top: 30px;
+    }
+    .password-forget-text {
+      margin: 30px;
+      text-align: right;
+      a {
+        text-decoration: none;
+        color: #5D99FF;
+      }
+    }
+
+  }
+}
