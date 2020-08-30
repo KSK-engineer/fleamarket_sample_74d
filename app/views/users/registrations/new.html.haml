@@ -2,13 +2,13 @@
 
 .account-main
   .account-top
-    %h2.account-top__title
+    %h3.account-top__title
       会員情報入力
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class: "registration-form"}) do |f|
       = render "users/shared/error_messages", resource: @user
       .account-contents
         .account-input
-          %h3.account-input__title
+          .account-input__title
           .account-input__form
             .field
               = f.label :nickname, "ニックネーム"
