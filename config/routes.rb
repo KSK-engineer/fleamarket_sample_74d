@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     end
   end
   resources :items, only: [:index, :show]
-  resources :transactions, only: [:new, :index]
+  resources :transactions, only: [:new, :index, :create]
 
 end

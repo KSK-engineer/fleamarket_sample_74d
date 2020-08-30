@@ -1,3 +1,5 @@
+= render 'header'
+
 .buy__confirmation
   .buy__confirmation--info
     .buy__confirmation--info--title 
@@ -37,3 +39,6 @@
           = link_to "変更する", new_registration_path, class: 'edit__btn'
       .buy__confirmation--info--form--register
         = link_to "購入する", root_path, class: 'purchase__btn'
+
+= render 'footer'
+        
