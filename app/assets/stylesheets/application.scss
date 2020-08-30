@@ -1,15 +1,23 @@
 @import "reset";
 @import "transactions";
-@import "modules/users";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "registration";
+
+@import "users/header";
+@import "users/registration";
+@import "users/session";
+@import "users/footer";
+
 @import "toppages/body";
 @import "toppages/header";
 @import "toppages/main";
 @import "toppages/banner";
 @import "toppages/footer";
 @import "toppages/sell_btn";
+
+@import "modules/mypage";
 @import "modules/showItem";
+@import "modules/newItem";
+
 @import "cards";
 

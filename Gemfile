@@ -56,6 +56,7 @@ group :development do
   gem 'rspec'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -85,3 +86,4 @@ gem 'payjp'
 gem 'dotenv'
 gem 'jquery-rails'
 
+gem 'querly'

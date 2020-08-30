@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   root 'items#index'
+  
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
   resources :registration, only: [:new, :index]
-  resources :items, only: [:index, :show]
-  resources :users, only: :index
+  resources :items, only: [:index, :show, :new]
+  resources :mypages, only: [:index]
   resources :cards, only: [:new, :show, :index] do
     collection do
       post 'show', to: 'cards#show'
@@ -11,7 +16,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :items, only: [:index, :show]
   resources :transactions, only: [:new, :index, :create]
 
 end
