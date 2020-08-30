@@ -36,7 +36,6 @@
     .img{
       width: 560px;
       height: 346px;
-      background-color: rgb(163, 112, 77);
       margin: auto;
     }
     ul{
@@ -46,11 +45,10 @@
       position: relative;
       display: flex;
       padding: 0px 70px;
-      li{
-        list-style: none;
+      .li{
+        margin: auto;
         width: 140px;
         height: 87px;
-        background-color: whitesmoke;
         border: 1px solid white;
       }
     }
