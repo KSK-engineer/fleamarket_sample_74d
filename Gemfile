@@ -82,4 +82,8 @@ gem 'ancestry'
 gem 'rubocop', require:false
 gem 'haml-rails'
 
+gem 'payjp'
+gem 'dotenv'
+gem 'jquery-rails'
+
 gem 'querly'
