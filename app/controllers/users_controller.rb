@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   def index
-    render 'users/index'
+  end
+
+  def new
+  end
+
+  def create
   end
 end
