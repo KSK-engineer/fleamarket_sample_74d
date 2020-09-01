@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'items#index'
 
-  resources :items, only: [:index, :show, :new, :edit, :create, :destroy] do
+  
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
+  resources :registration, only: [:new, :index]
+  resources :items, only: [:index, :show, :new]
+  resources :mypages, only: [:index]
+  resources :cards, only: [:new, :show, :index] do
     collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
     end
   end
-  resources :registration, only: [:new, :index]
-  resources :mypages, only: [:index]
-  resources :cards, only: [:new]
-  resources :transactions, only: [:new]
+  resources :transactions, only: [:new, :index, :create]
 end
