@@ -15,3 +15,4 @@ class Address < ApplicationRecord
   VALID_TELNUMBER_REGEX = /\A(\d{2,3}-\d{1,4}-\d{4})?\z/
   validates :phone_number, format: { with: VALID_TELNUMBER_REGEX }
 end
+
