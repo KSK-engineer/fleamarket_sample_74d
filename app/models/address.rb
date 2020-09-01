@@ -1,10 +1,3 @@
-<<<<<< 出品機能実装
-extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :prefecture
-  belongs_to :user, optional: true
-  validates :prefecture, presence: true
-end
-======
 class Address < ApplicationRecord
   belongs_to :user
 
@@ -22,4 +15,4 @@ class Address < ApplicationRecord
   VALID_TELNUMBER_REGEX = /\A(\d{2,3}-\d{1,4}-\d{4})?\z/
   validates :phone_number, format: { with: VALID_TELNUMBER_REGEX }
 end
->>>>>> master
+

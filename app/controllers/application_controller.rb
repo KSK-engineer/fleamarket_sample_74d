@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
 
-  protected
+  private
+  def production?
+    Rails.env.production?
+  end
+
 
   def configure_permitted_parameters
     # added_attrs = [:name, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :familyname_kanji, :firstname_kanji, :familyname_kana, :firstname_kana, :birthday])
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :familyname_kanji, :firstname_kanji, :familyname_kan, :firstname_kana, :birthday])
   end
+end
