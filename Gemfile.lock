@@ -114,12 +114,12 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    erb2haml (0.1.5)
+      html2haml
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.13.1)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -336,7 +336,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  font-awesome-rails
+  erb2haml
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)

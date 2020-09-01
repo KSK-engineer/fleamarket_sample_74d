@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
+  accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :category
   accepts_nested_attributes_for :brand
 end

@@ -1,31 +1,58 @@
-$(function(){
-  //画像ファイルプレビュー表示のイベント追加 imageを選択時に発火するイベントを登録
-  $('form').on('change', 'input[type="image"]', function(e) {
-    var image = e.target.images[0],
-        reader = new ImageReader(),
-        $preview = $(".preview");
-        t = this;
+$(document).on('turbolinks:load', ()=> {
+  // 画像用のinputを生成する関数
+  const buildFileField = (index)=> {
+    const html = `<div data-index="${index}" class="js-file_group">
+                    <input class="js-file" type="file"
+                    name="item[images_attributes][${index}][src]"
+                    id="item_images_attributes_${index}_src"><br>
+                    <div class="js-remove">削除</div>
+                  </div>`;
+    return html;
+  }
+  // プレビュー用のimgタグを生成する関数
+  const buildImg = (index, url)=> {
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    return html;
+  }
 
-    // 画像ファイル以外の場合は何もしない
-    if(image.type.indexOf("image") < 0){
-      return false;
+  // file_fieldのnameに動的なindexをつける為の配列
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  // 既に使われているindexを除外
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
+
+  $('.hidden-destroy').hide();
+
+  $('#image-box').on('change', '.js-file', function(e) {
+    const targetIndex = $(this).parent().data('index');
+    // ファイルのブラウザ上でのURLを取得する
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
+
+    // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
+    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      img.setAttribute('src', blobUrl);
+    } else {  // 新規画像追加の処理
+      $('#previews').append(buildImg(targetIndex, blobUrl));
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
+  });
 
-    // ファイル読み込みが完了した際のイベント登録
-    reader.onload = (function(image) {
-      return function(e) {
-        //既存のプレビューを削除
-        $preview.empty();
-        // .prevewの領域の中にロードした画像を表示するimageタグを追加
-        $preview.append($('<img>').attr({
-                  src: e.target.result,
-                  width: "150px",
-                  class: "preview",
-                  title: image.name
-              }));
-      };
-    })(image);
+  $('#image-box').on('click', '.js-remove', function() {
+    const targetIndex = $(this).parent().data('index');
+    // 該当indexを振られているチェックボックスを取得する
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    reader.readAsDataURL(image);
+    $(this).parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
+
+    // 画像入力欄が0個にならないようにしておく
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
