@@ -10,4 +10,12 @@ Rails.application.routes.draw do
   resources :cards, only: [:new]
   resources :transactions, only: [:new]
 
+  devise_scope :user do
+    get '/addresses', to: 'users/registrations#new_address'
+    post '/addresses', to: 'users/registrations#create_address'
+    # get '/addresses/:id/edit', to: 'users/registrations#edit_address', as: 'edit_address'
+    # patch '/addresses/:id', to: 'users/registrations#update_address'
+    # put '/addresses/:id', to: 'users/registrations#update_address'
+  end
+
 end
