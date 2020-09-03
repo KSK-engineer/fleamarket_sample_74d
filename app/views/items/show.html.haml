@@ -1,8 +1,5 @@
 = render 'header'
 
--# .breadCrumbs
-  FURIMA   >   レディース   >   トップス   >   Tシャツ/カットソー(半袖/袖なし)   >   product1
-
 .main
   .itemBox
     %h.itemBox__name
@@ -19,6 +16,19 @@
         (税込)送料込み
     .itemDetail
       = @item.detail
+    - if user_signed_in?
+      %button.buyBtn{name: "button", type: "submit"}
+        = link_to "#", class: "txt" do
+          購入画面に進む
+    - elsif user_signed_in? && @item.seller_id == current_user.id
+      .item-edit
+        編集をする
+      .item-delete
+        削除する
+    - else
+      %button.buyBtn{name: "button", type: "submit"}
+        = link_to "/users/sign_up", class: "txt" do
+          新規会員登録をして購入画面に進む
     .details
       %table
         %tr
@@ -79,7 +89,7 @@
       %br
       不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %br
-    %button.commentBtn{name: "button", type: "submit", }
+    %button.commentBtn{name: "button", type: "submit"}
       = icon("fa","comment",class: "comment-icon")
       コメントする
   %ul.links

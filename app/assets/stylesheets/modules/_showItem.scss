@@ -2,23 +2,13 @@
   box-sizing: border-box;
 }
 
-.breadCrumbs{
-  height: 55px;
-  width: 100%;
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  position: relative;
-  font-size: 14px;
-  padding: 0 200px;
-  line-height: 55px;
-}
 .main{
-  height: 1855px;
+  height: 1900px;
   width: 100%;
   background-color: #f8f8f8;
   padding: 40px;
   .itemBox{
-    height: 1362px;
+    height: 1420px;
     width: 700px;
     background-color: #ffffff;
     margin: auto;
@@ -69,8 +59,52 @@
     .itemDetail{
       height: 162px;
       width: 620px;
-      margin-bottom: 30px;
       font-size: 18px;
+    }
+    .buyBtn{
+      width: 491.19px;
+      height: 65px;
+      background-color: #3ccace;
+      font-size: 18px;
+      border-radius: 100px;
+      border: #3ccace 1px solid;
+      margin: auto;
+      display: block;
+      cursor: pointer;
+      margin-bottom: 20px;
+      .txt{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+    .item-edit{
+      height: 40px;
+      width: 300px;
+      padding: 0px 100px;
+      background-color: #3ccace;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 50px;
+      color: #fff;
+      line-height: 40px;
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+    .item-delete{
+      height: 40px;
+      width: 300px;
+      padding: 0px 113px;
+      background-color: red;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 50px;
+      color: #fff;
+      line-height: 40px;
+      float: left;
+      margin-bottom: 20px;
     }
     .details{
       width: 620px;
