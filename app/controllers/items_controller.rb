@@ -43,6 +43,14 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @item = Item.find_by(id: params[:id])
+    @image = @item.images.first
+    @images = @item.images
+    @address = Prefecture.find_by(id: @item.prefecture_id)
+    @seller = User.find_by(id: @item.seller_id)
+  end
+
   private
   
   def item_params
@@ -67,4 +75,3 @@ class ItemsController < ApplicationController
   end
 
 end
-
