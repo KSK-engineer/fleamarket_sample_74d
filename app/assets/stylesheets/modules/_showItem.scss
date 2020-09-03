@@ -61,19 +61,19 @@
       width: 620px;
       font-size: 18px;
     }
-    .buyBtn{
-      width: 491.19px;
-      height: 65px;
-      background-color: #3ccace;
-      font-size: 18px;
-      border-radius: 100px;
-      border: #3ccace 1px solid;
-      margin: auto;
-      display: block;
-      cursor: pointer;
-      margin-bottom: 20px;
-      .txt{
-        text-decoration: none;
+    .txt{
+      text-decoration: none;
+      .buyBtn{
+        width: 491.19px;
+        height: 65px;
+        background-color: #3ccace;
+        font-size: 18px;
+        border-radius: 100px;
+        border: #3ccace 1px solid;
+        margin: auto;
+        display: block;
+        cursor: pointer;
+        margin-bottom: 20px;
         color: #fff;
       }
     }
