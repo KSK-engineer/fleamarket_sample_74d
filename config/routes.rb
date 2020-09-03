@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  get "items/new" => "items#new"
-  get "items/:id" => "items#show"
+  get "items/new" == "items#new"
+  get "items/:id" == "items#show"
   
 
   resources :items, only: [:index, :show, :new]
