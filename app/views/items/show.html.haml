@@ -26,7 +26,7 @@
       .item-delete
         削除する
     - else
-      = link_to "/users/sign_up", class: "txt" do
+      = link_to new_user_registration_path, class: "txt" do
         %button.buyBtn{name: "button", type: "submit"}
           新規会員登録をして購入画面に進む
     .details
