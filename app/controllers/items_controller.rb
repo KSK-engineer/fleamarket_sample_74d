@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find_by(id: params[:id])
+    @item = Item.find(params[:id])
     @image = @item.images.first
     @images = @item.images
     @address = Prefecture.find_by(id: @item.prefecture_id)
