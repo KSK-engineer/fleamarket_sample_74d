@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  validates :password, length: { minimum: 7 }
+  # validates :password, length: { minimum: 7 }
 
   VALID_EMAIL_REGEX = /[\w\-\._]+@[\w\-\._]+\.[A-Za-z]+/
   validates :email, format: { with: VALID_EMAIL_REGEX}
