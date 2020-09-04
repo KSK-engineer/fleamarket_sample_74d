@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :credit_card, dependent: :destroy
-  has_many :addresses,   dependent: :destroy
+  has_many :addresses,  dependent: :destroy
   has_many :likes,      dependent: :destroy
   has_many :comments,   dependent: :destroy
   has_many :items,      dependent: :destroy
@@ -19,22 +19,16 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  validates :nickname,         length: { maximum: 10 }
-  validates :password,         length: { minimum: 7 }
-  validates :familyname_kanji, length: { maximum: 10 }
-  validates :firstname_kanji,  length: { maximum: 10 }
-  validates :familyname_kana,  length: { maximum: 10 }
-  validates :firstname_kana,   length: { maximum: 10 }
+  validates :password, length: { minimum: 7 }
 
-  #ニックネームにひらがな・カタカナ・漢字・半角英数を使えるように正規表現を設定
-  VALID_NICKNAME_REGEX = /\A[ぁ-んァ-ン一-龥a-zA-Z0-9.!]/
-  validates :nickname, uniqueness: true, format: { with: VALID_NICKNAME_REGEX}, on: :create
+  VALID_EMAIL_REGEX = /[\w\-\._]+@[\w\-\._]+\.[A-Za-z]+/
+  validates :email, format: { with: VALID_EMAIL_REGEX}
 
   #名字に漢字とひらがなを使えるように正規表現を設定
   VALID_LASTNAME_REGEX = /\A[一-龥ぁ-ん]/
   validates :familyname_kanji, format: { with: VALID_LASTNAME_REGEX}
 
-  #名前に漢字とひらがなを使えるように名字から正規表現を参照
+  #名前に漢字とひらがなを使えるように名字から正規表現を参照している
   VALID_FIRSTNAME_REGEX = VALID_LASTNAME_REGEX
   validates :firstname_kanji, format: { with: VALID_FIRSTNAME_REGEX}
 
