@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        familyname_kanji: 姓
+        firstname_kanji: 名
+        familyname_kana: 姓(カナ)
+        firstname_kana: 名(カナ)
+        birthday: 生年月日
+      address:
+        family_name: 姓
+        given_name: 名
+        family_name_kana: 姓(カナ)
+        given_name_kana: 名(カナ)
+        postcode: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        block: 番地
+        building: 建物名
+        phone_number: 電話
