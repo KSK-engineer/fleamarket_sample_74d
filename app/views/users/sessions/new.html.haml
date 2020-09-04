@@ -2,6 +2,7 @@
 
 .sessions-main
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = render "users/shared/error_messages"
     .registration-text
       アカウントをお持ちでない方はこちら
       = link_to "sign_up" ,class:"new-link" do
