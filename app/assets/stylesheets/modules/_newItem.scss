@@ -76,12 +76,13 @@
             }
 
             .js-file_group{      
-              
+              display: flex;
               .js-file{
                 display: none;
+
               }  
               .js-remove{
-                display: none;
+                
               }
               
               

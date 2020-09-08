@@ -1,67 +1,80 @@
 = render 'header'
 
-.breadCrumbs
-  FURIMA   >   レディース   >   トップス   >   Tシャツ/カットソー(半袖/袖なし)   >   product1
-
 .main
   .itemBox
     %h.itemBox__name
-      product 1
+      = @item.name
     .img
+      = image_tag("#{@image.src}", size: '560x346', class: 'img__img')
     %ul
-      %li
-      %li
-      %li
+      - @images.each do |i|
+        = image_tag("#{i.src}", class: 'li')
     .itemBox__price
-      ¥10000
+      = @item.price
+      円
       .itemBox__price-detail
         (税込)送料込み
     .itemDetail
-      親譲りの無鉄砲で小供の時から損ばかりしている。 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。 弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      = @item.detail
+    - if user_signed_in?
+      = link_to "#", class: "txt" do
+        %button.buyBtn{name: "button", type: "submit"}
+          購入画面に進む
+    - elsif user_signed_in? && @item.seller_id == current_user.id
+      .item-edit
+        編集をする
+      .item-delete
+        削除する
+    - else
+      = link_to new_user_registration_path, class: "txt" do
+        %button.buyBtn{name: "button", type: "submit"}
+          新規会員登録をして購入画面に進む
     .details
       %table
         %tr
           %th
             出品者
           %td
-            hoge
+            = @seller.nickname
         %tr
           %th
             カテゴリー
           %td
-            レディース
+            = @item.category_id
             %br
-            トップス
+            $$$$
             %br
-            Tシャツ/カットソー(半袖/袖なし)
+            $$$$
         %tr
           %th
             ブランド
           %td
+            $$$$
         %tr
           %th
             商品のサイズ
           %td
+            $$$$
         %tr
           %th
             商品の状態
           %td
-            新品/未使用
+            = @item.condition
         %tr
           %th
             配送料の負担
           %td
-            送料込み
+            = @item.delivery_fee
         %tr
           %th
             発送元の地域
           %td
-            青森県
+            = @address.name
         %tr
           %th
             発送日の目安
           %td
-            1~2日で発送
+            = @item.delivery_day
     .option
       %a.fav
         %i.fas.fa-star
@@ -76,7 +89,7 @@
       %br
       不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %br
-    %button.commentBtn{name: "button", type: "submit", }
+    %button.commentBtn{name: "button", type: "submit"}
       = icon("fa","comment",class: "comment-icon")
       コメントする
   %ul.links
