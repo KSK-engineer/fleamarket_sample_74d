@@ -14,6 +14,10 @@ ActiveRecord::Schema.define(version: 2020_08_12_023200) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "family_name", null: false
+    t.string "given_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "given_name_kana", null: false
     t.integer "postcode", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false
@@ -24,20 +28,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_023200) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
-
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "detail", null: false
-    t.string "condition", null: false
-    t.string "delivery_fee", null: false
-    t.string "delivery_area", null: false
-    t.string "delivery_days", null: false
-    t.integer "price", null: false
-    t.string "status", null: false
-    t.bigint "user", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

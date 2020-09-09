@@ -1,4 +1,6 @@
 require 'rails_helper'
+
+
 describe User do
   describe '#create' do
 
@@ -70,10 +72,10 @@ describe User do
       expect(user.errors[:familyname_kanji]).to include("を入力してください")
     end
 
-    it "familyname_kannjiが全角でない場合は登録できないこと" do
-      another_user = build(:user, familyname_kannji: "ﾔﾏﾀﾞ")
+    it "familyname_kanjiが全角でない場合は登録できないこと" do
+      another_user = build(:user, familyname_kanji: "ﾔﾏﾀﾞ")
       another_user.valid?
-      expect(another_user.errors[:familyname_kannji]).to include("は不正な値です")
+      expect(another_user.errors[:familyname_kanji]).to include("は不正な値です")
     end
 
     it "firstname_kanjiがない場合は登録できないこと" do
