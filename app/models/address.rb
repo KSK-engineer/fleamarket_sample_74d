@@ -23,4 +23,19 @@ class Address < ApplicationRecord
     沖縄県:47
   }
 
+  #名字に漢字とひらがなを使えるように正規表現を設定
+  VALID_LASTNAME_REGEX = /\A[一-龥ぁ-ん]/
+  validates :family_name, format: { with: VALID_LASTNAME_REGEX}
+
+  #名前に漢字とひらがなを使えるように名字から正規表現を参照している
+  VALID_FIRSTNAME_REGEX = VALID_LASTNAME_REGEX
+  validates :given_name, format: { with: VALID_FIRSTNAME_REGEX}
+
+  #名字のフリガナにカタカナを使えるように正規表現を設定
+  VALID_LASTNAMEKANA_REGEX = /\A[ァ-ヶー－]+\z/
+  validates :family_name_kana, format: { with: VALID_LASTNAMEKANA_REGEX}
+
+  #名前のフリガナにカタカナを使えるように名字のフリガナから正規表現を参照している
+  VALID_FIRSTNAMEKANA_REGEX = VALID_LASTNAMEKANA_REGEX
+  validates :given_name_kana, format: { with: VALID_FIRSTNAMEKANA_REGEX}
 end
