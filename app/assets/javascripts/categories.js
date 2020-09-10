@@ -1,4 +1,5 @@
-$(function strict(){
+"use strict";
+$(function(){
   function build_childSelect() {
     let child_select = `
               <select name="item[category_id]" class="child_category_id">
