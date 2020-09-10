@@ -45,7 +45,8 @@ describe User do
     it "passwordがない場合は登録できないこと" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("を入力してください", "は7文字以上で入力してください", "は不正な値です")
+      # expect(user.errors[:password]).to include("を入力してください", "は7文字以上で入力してください", "は不正な値です")
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
