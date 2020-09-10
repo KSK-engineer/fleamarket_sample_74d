@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   get "items/new" == "items#new"
   get "items/:id" == "items#show"
   
+  resources :items do
+    collection do
+      get :search
+    end
+  end
   resources :registration, only: [:new, :index]
-  resources :items, only: [:index, :show, :new]
   resources :mypages, only: [:index]
   resources :cards, only: [:new, :show, :index] do
     collection do
