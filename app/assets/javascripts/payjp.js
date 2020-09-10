@@ -1,7 +1,7 @@
 $(function() {
   $('#cardCreateForm').on('submit', function(e) {
     e.preventDefault()
-    Payjp.setPublicKey(['PAYJP_PUBLIC_KEY']);
+    Payjp.setPublicKey("pk_test_13692b326405fc0a5aedc17a");
     var card = {
       number: document.getElementById("card_number").value,
       exp_month: document.getElementById("exp_month").value,
@@ -19,10 +19,12 @@ $(function() {
           $("#exp_year").removeAttr("name");
           $("#card_token").append(
             $('<input type="hidden" name="payjp-token">').val(response.id)
-          );
-          $('#token_submit').get(0).submit();
+          )
+          document.inputForm.submit();
           alert("登録に成功しました");
         } else {
+          console.log(response.error.message)
+          console.log(card)
           alert("カード情報が正しくありません");
         }
       });
