@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root 'items#index'
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
 
+  get "items/new" == "items#new"
+  get "items/:id" == "items#show"
+  
   resources :registration, only: [:new, :index]
   resources :items, only: [:index, :show, :new]
   resources :mypages, only: [:index]
@@ -18,5 +21,4 @@ Rails.application.routes.draw do
   #end
   
   resources :transactions, only: [:new, :index, :create]
-
 end
