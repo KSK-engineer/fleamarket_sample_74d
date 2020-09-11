@@ -5,22 +5,22 @@
     .new__card--info--title 
       クレジットカード情報
 
-    = form_with url: new_card_path, class: 'new__card--info--form' do |form|
+    = form_with url: cards_path, model: @card, method: :post, html: { name: "inputForm" }, id: "cardCreateForm", class: 'new__card--info--form' do |form|
       .new__card--info--form--box
-        .label 
+        .label(for="cardnumber-input")
           カード番号
           %span.require__mark
             必須
-        = form.text_field :number, class: 'input__box', placeholder: '全て半角で入力してください。　　例）1111222233334444'
+        = form.text_field :card_number, type: "text", id: "card_number", class: 'input__box', placeholder: '全て半角で入力してください。　　例）1111222233334444', maxlength: "16"
       .new__card--info--form--box
         .label 
           有効期限
           %span.require__mark
             必須
-        = form.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'expire__box'
+        = form.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'expire__box', name: 'exp_month', id: "exp_month"
         %span.expire__mark
           月
-        = form.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'expire__box'
+        = form.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'expire__box', name: 'exp_year', id: "exp_year"
         %span.expire__mark
           年
       .new__card--info--form--box
@@ -28,11 +28,12 @@
           セキュリティコード
           %span.require__mark
             必須
-        = form.text_field :number, class: 'input__box', placeholder: '全て半角で入力してください。　　例）111'
-      .new__card--info--form--register
-        = link_to "登録する", mypages_path, class: 'register__btn'
-
+        = form.text_field :cvc, type: "text", class: 'input__box', id: "cvc", placeholder: '全て半角で入力してください。　　例）111', maxlength: "4"
+      .new__card--info--form--register#card_token
+        = form.submit '登録する', class: 'creditsSubmit', id: 'token_submit'
+      
 = render 'footer'
+    
     
     
   
