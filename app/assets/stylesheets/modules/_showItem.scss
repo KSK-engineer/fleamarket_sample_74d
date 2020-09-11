@@ -8,7 +8,7 @@
   background-color: #f8f8f8;
   padding: 40px;
   .itemBox{
-    height: 1420px;
+    height: auto;
     width: 700px;
     background-color: #ffffff;
     margin: auto;
@@ -130,6 +130,10 @@
             padding: 15px;
             width: 80%;
             border: 1px solid #dedede;
+            .cate{
+              text-decoration: none;
+              color: #3ccace;
+            }
           }
         }
       }
@@ -149,7 +153,7 @@
         border-radius: 40px;
         border: 1px solid #ffb340;
         color: #3ccace;
-        line-height: 22px;
+        line-height: 26px;
         cursor: pointer;
       }
       .tel{

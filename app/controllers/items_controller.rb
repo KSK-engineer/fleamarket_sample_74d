@@ -1,19 +1,18 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
-  
+  before_action :set_parents, only: [:new, :create]
+
   def index
     @items = Item.includes(:images).order('created_at DESC')
-    @parents = Category.where(ancestry: nil)
+
   end
   
   def new
     @address = Prefecture.all
     @item = Item.new
     @item.images.new
-    
     @item.build_brand
   end
-  
+
   def create
     
     @address = Prefecture.all
@@ -25,6 +24,19 @@ class ItemsController < ApplicationController
       render :new
     end
 
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:parent_id]
+          @childrens = Category.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds = Category.find(params[:children_id]).children
+        end
+      end
+    end
   end
 
   def edit
@@ -48,6 +60,8 @@ class ItemsController < ApplicationController
     @images = @item.images
     @address = Prefecture.find(@item.prefecture_id)
     @seller = User.find(@item.seller_id)
+    @category = Category.find(@item.category_id)
+    @brand = Brand.find(@item.brand_id)
   end
 
   private
@@ -71,6 +85,10 @@ class ItemsController < ApplicationController
   
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
 end

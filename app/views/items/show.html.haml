@@ -16,15 +16,15 @@
         (税込)送料込み
     .itemDetail
       = @item.detail
-    - if user_signed_in?
-      = link_to "#", class: "txt" do
-        %button.buyBtn{name: "button", type: "submit"}
-          購入画面に進む
-    - elsif user_signed_in? && @item.seller_id == current_user.id
+    - if user_signed_in? && @item.seller_id == current_user.id
       .item-edit
         編集をする
       .item-delete
         削除する
+    - elsif user_signed_in?
+      = link_to "#", class: "txt" do
+        %button.buyBtn{name: "button", type: "submit"}
+          購入画面に進む
     - else
       = link_to new_user_registration_path, class: "txt" do
         %button.buyBtn{name: "button", type: "submit"}
@@ -40,21 +40,24 @@
           %th
             カテゴリー
           %td
-            = @item.category_id
+            = link_to "#" , class:"cate" do
+              = @category.parent.parent.name
             %br
-            $$$$
+            = link_to "#" , class:"cate" do
+              = @category.parent.name
             %br
-            $$$$
+            = link_to "#" , class:"cate" do
+              = @category.name
         %tr
           %th
             ブランド
           %td
-            $$$$
-        %tr
-          %th
-            商品のサイズ
-          %td
-            $$$$
+            = @brand.name
+        -# %tr
+        -#   %th
+        -#     商品のサイズ
+        -#   %td
+        -#     $$$$
         %tr
           %th
             商品の状態

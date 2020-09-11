@@ -61,8 +61,8 @@
           カテゴリー
           .must
             必須
-        = f.select :category_id, Item.category_ids.keys, class:'categories' 
-        
+        #category_field
+          = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
         .brand-title
           ブランド
           .any
