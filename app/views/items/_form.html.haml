@@ -1,5 +1,5 @@
 .post-item
-  = form_with model: @item, class: 'post-item-form' do |f|
+  = form_with model: @item, class: 'post-item-form', local: true do |f|
     .logo
       .furima-logo
     
@@ -119,14 +119,14 @@
           = link_to '戻る', items_path, class: 'back-btn' 
         .precautions
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-    .newitem-footer
-      .notes
-        .privacy
-          プライバシーポリシー
-        .terms
-          メルカリ利用規約
-        .notation
-          特定商取引に関する取引
-      .foot-logo
-      .inc
-        ©️ FURIMA.Inc
+.newitem-footer
+  .notes
+    .privacy
+      プライバシーポリシー
+    .terms
+      メルカリ利用規約
+    .notation
+      特定商取引に関する取引
+  .foot-logo
+  .inc
+    ©️ FURIMA.Inc
