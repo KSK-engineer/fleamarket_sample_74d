@@ -23,8 +23,6 @@ $(function() {
           document.inputForm.submit();
           alert("登録に成功しました");
         } else {
-          console.log(response.error.message)
-          console.log(card)
           alert("カード情報が正しくありません");
         }
       });
