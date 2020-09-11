@@ -20,18 +20,11 @@ $(function(){
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   
-
   $('#image-box').on('change', '.js-file', function(e) {
-    console.log( $('#image-box'))
     const targetIndex = $(this).parent().data('index');
-    console.log(targetIndex)
-    console.log(this)
-    
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-    console.log(file)
-    console.log(blobUrl)
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
@@ -46,18 +39,14 @@ $(function(){
     }
   });
   
-
   $('#image-box').on('click', '.js-remove', function() {
-    
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
-
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
