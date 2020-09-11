@@ -3,8 +3,8 @@
   margin: 0 auto;
   background-color: white;
   .account-top
-    &__title{
-      padding: 50px;
+    h3 {
+      padding-top: 50px;
       font-size: 23px;
       font-weight: bold;
       text-align: center;
@@ -53,18 +53,15 @@
         vertical-align: top;
         background: #ea352d;
       }
-      // 任意項目の記述
-      // 現時点、不必要なのでコメントアウト
-
-      //  .form-require-not{
-      //     display: inline-block;
-      //     background-color: rgb(80, 71, 71);
-      //     color: #ffffff;
-      //     padding: 3px;
-      //     font-size: 15px;
-      //     border-radius: 2px;
-      //     vertical-align: bottom;
-      //   }
+      .form-require-not{
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background-color: rgb(80, 71, 71);
+      }
       .field-birthday {
         margin-top: 10px;
         .birthday-select-wrap {
@@ -86,15 +83,16 @@
         }
       }
       .account-text {
-        font-size: 17px;
+        margin: 50px 0 0;
+        padding: 0;
+        font-size: 14px;
         text-align: center;
-        padding-top: 50px;
       }
       .account-submit {
         .submit-form {
           height: 50px;
           width: 100%;
-          margin-top: 60px;
+          margin-top: 25px;
           background-color: #1dbcc7;
           color: white;
           border: none;

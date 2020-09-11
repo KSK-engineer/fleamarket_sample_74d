@@ -12,18 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2020_08_15_065508) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addresses", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "postcode", null: false
+    t.string "family_name", null: false
+    t.string "given_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "given_name_kana", null: false
+    t.string "postcode"
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.string "block", null: false
     t.string "building"
-    t.string "room_number"
-    t.string "phone_number"
+    t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

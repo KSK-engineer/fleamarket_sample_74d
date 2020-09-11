@@ -78,7 +78,6 @@
 |city|string|null:false|
 |block|string|null:false|
 |building|string|
-|room_number|integer|
 |phone_number|integer|
 ### Association
 - belongs_to :user
