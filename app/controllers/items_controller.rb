@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     
     @address = Prefecture.all
     @item = Item.new(item_params)
-
+  
     if @item.save!
       redirect_to root_path, notice: "登録に成功しました"
     else
@@ -42,17 +42,16 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  
   end
 
   def show
@@ -81,7 +80,7 @@ class ItemsController < ApplicationController
       :brand_id, 
       :category_id, 
       images_attributes_id:  [:src, :_destroy, :id]
-    )
+    ).merge(seller_id: current_user.id)
   end
   
   def set_item

@@ -12,18 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2020_08_15_065508) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addresses", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "postcode", null: false
+    t.string "family_name", null: false
+    t.string "given_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "given_name_kana", null: false
+    t.string "postcode"
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.string "block", null: false
     t.string "building"
-    t.string "room_number"
-    t.string "phone_number"
+    t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -33,11 +35,12 @@ ActiveRecord::Schema.define(version: 2020_08_15_065508) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 2020_08_15_065508) do
     t.integer "delivery_day", null: false
     t.integer "price", null: false
     t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
-    t.integer "brand_id", null: false
+    t.integer "buyer_id"
+    t.integer "brand_id"
     t.integer "category_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,4 +94,5 @@ ActiveRecord::Schema.define(version: 2020_08_15_065508) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
 end

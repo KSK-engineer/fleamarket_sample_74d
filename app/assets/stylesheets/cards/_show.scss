@@ -1,4 +1,4 @@
-.new__card {
+.card {
   width: 100vw;
   height: 100vh;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
@@ -10,8 +10,8 @@
     font-weight: bold;
 
     &--title {
-      height: 100px;
-      line-height: 100px;
+      height: 80px;
+      line-height: 80px;
       text-align: center;
       padding: 20px 0px 10px;
       font-size: 30px;
@@ -70,11 +70,11 @@
         border-radius: 4px;
       }
 
-      .register__btn {
-        color: #ffffff;
-        text-decoration: none;
-        cursor: pointer;
-      }
+      //.register__btn {
+        //color: #ffffff;
+        //text-decoration: none;
+        //cursor: pointer;
+      //}
     }
 
   }

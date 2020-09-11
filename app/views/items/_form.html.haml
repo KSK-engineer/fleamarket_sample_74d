@@ -1,5 +1,5 @@
 .post-item
-  = form_with model: @item, class: 'post-item-form' do |f|
+  = form_with model: @item, class: 'post-item-form', local: true do |f|
     .logo
       .furima-logo
     
@@ -21,15 +21,14 @@
                     = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
               = f.fields_for :images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :src, class: 'js-file'
-                  %br/
-                  %span.js-remove 削除
+                  = image.file_field :src, class: 'js-file hidden'
+                  
               - if @item.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
             - if @item.persisted?
               .js-file_group{"data-index" => "#{@item.images.count}"}
-                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-                .js-remove 削除
+                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file hidden'
+                
 
             = f.label :image, class: 'image' do
               = icon("fas","camera", class: 'camera')
@@ -37,37 +36,6 @@
               ドラックアンドドロップ
               %br
               またはクリックしてファイルをアップロード
-          
-
-
-
-
-
-
-
-
-
-
-        -# #image-box
-        -#   = f.fields_for :images do |image|
-        -#     .js-file_group{"data-index" => "#{image.index}"}
-        -#       = image.file_field :src, class: 'js-file'
-        -#       %br/
-        -#       %span.js-remove 削除
-        -#   = f.label :image, class: 'image' do
-        -#     = icon("fas","camera", class: 'camera')
-        -#   .drag-drop
-        -#     ドラックアンドドロップ
-        -#     %br
-        -#     またはクリックしてファイルをアップロード
-          
-      -# .input-box
-      -#   = f.text_field :text, class: 'input-box__text', placeholder: 'type a message'
-      -#   = f.label :image, class: 'input-box__image' do
-      -#     = icon('fas','image', class: 'icon')
-      -#     = f.file_field :image, class: 'input-box__hidden'
-      -# = f.submit 'Send', class: 'submit-btn' 
-
       .item-name
         
         .name-title
@@ -145,19 +113,20 @@
           販売利益
       .btns-content
         .btns
+        
           = f.submit '出品する', class: 'sale-btn' 
           = f.submit '下書きに保存', class: 'draft-btn' 
           = link_to '戻る', items_path, class: 'back-btn' 
         .precautions
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-    .newitem-footer
-      .notes
-        .privacy
-          プライバシーポリシー
-        .terms
-          メルカリ利用規約
-        .notation
-          特定商取引に関する取引
-      .foot-logo
-      .inc
-        ©️ FURIMA.Inc
+.newitem-footer
+  .notes
+    .privacy
+      プライバシーポリシー
+    .terms
+      メルカリ利用規約
+    .notation
+      特定商取引に関する取引
+  .foot-logo
+  .inc
+    ©️ FURIMA.Inc
