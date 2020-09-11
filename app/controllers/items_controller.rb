@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @address = Prefecture.all
     @item = Item.new
     @item.images.new
-    
+    @parents = Category.all.order("id ASC").limit(13)
     @item.build_brand
   end
   
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     
     @address = Prefecture.all
     @item = Item.new(item_params)
-  
+
     if @item.save!
       redirect_to root_path, notice: "登録に成功しました"
     else
@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
       :brand_id, 
       :category_id, 
       images_attributes_id:  [:src, :_destroy, :id]
-    ).merge(seller_id: current_user.id)
+    )
   end
   
   def set_item

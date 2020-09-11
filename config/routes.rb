@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "items/:id" == "items#show"
   
   resources :registration, only: [:new, :index]
-  resources :items
+  resources :items, only: [:index, :show, :new]
   resources :mypages, only: [:index]
   resources :cards, only: [:new, :create, :show, :destroy]
 

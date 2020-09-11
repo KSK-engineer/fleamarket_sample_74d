@@ -2,19 +2,16 @@ $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
-                    <input class="js-file hidden" type="file"
+                    <input class="js-file" type="file"
                     name="item[images_attributes][${index}][src]"
                     id="item_images_attributes_${index}_src"><br>
-                    
+                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<div class='preview'>
-                    <img data-index="${index}" src="${url}" width="100px" height="100px">
-                    <div class="js-remove">削除</div>
-                  </div>`;
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
 
@@ -33,16 +30,13 @@ $(document).on('turbolinks:load', ()=> {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
-      $('.label-box').attr('for', `item_images_attributes_${targetIndex+1}_src`);
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
-  console.log( $(this).parent().data('index'))
 
   $('#image-box').on('click', '.js-remove', function() {
-    console.log(this)
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
