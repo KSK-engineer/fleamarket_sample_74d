@@ -21,7 +21,7 @@
           %li.right-box__item.right-box__item--login
             =link_to "ログアウト", destroy_user_session_path, method: :delete
           %li.right-box__item.right-box__item--new
-            =link_to "マイページ", mypages_path, method: :get
+            =link_to "マイページ", mypages_path
         - else
           %li.right-box__item.right-box__item--login
             =link_to new_user_session_path do

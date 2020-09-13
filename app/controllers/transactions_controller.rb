@@ -11,6 +11,8 @@ class TransactionsController < ApplicationController
 
     # 対象の商品を取得
     @item = Item.find(params[:item_id])
+
+    @address = Address.find_by(user_id: current_user.id)
    
     # 現在のユーザーがカードを登録済みの場合、カードの情報（payjp）を取得する
     if @card
