@@ -94,57 +94,61 @@
           %h3.title 新規投稿商品
       .product-lists
         .product-list
-          %a 
-            %figure.product-list--img
-              =image_tag("/products/1.png")
-            .product-list--body
-              %h3.name 1
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p (税込)
-        .product-list
-          %a 
-            %figure.product-list--img
-              =image_tag("/products/2.png")
-            .product-list--body
-              %h3.name 2
-              .details
-                %ul
-                  %li 2000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p (税込)
-        .product-list
-          %a 
-            %figure.product-list--img
-              =image_tag("/products/3.png")
-            .product-list--body
-              %h3.name 3
-              .details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p (税込)
-        .product-list
-          %a 
-            %figure.product-list--img
-              =image_tag("/products/5.png")
-            .product-list--body
-              %h3.name 5
-              .details
-                %ul
-                  %li 5000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p (税込)
+          - @items.each do |item|
+            -# - if Transaction.find_by(item_id: item.id) == nil
+            = link_to item_path(item), class: "list__image" do
+              %figure.product-list--img
+                = image_tag item.images.first.src
+              .product-list--body
+                %h3.name
+                  = item.name
+                .details
+                  %ul
+                    %li 
+                      = item.price
+                      円
+                    %li
+                      %i.fas.fa-star 0
+                  %p (税込)
+        -# .product-list
+        -#   %a 
+        -#     %figure.product-list--img
+        -#       =image_tag("/products/2.png")
+        -#     .product-list--body
+        -#       %h3.name 2
+        -#       .details
+        -#         %ul
+        -#           %li 2000円
+        -#           %li
+        -#             %i.fas.fa-star
+        -#               0
+        -#         %p (税込)
+        -# .product-list
+        -#   %a 
+        -#     %figure.product-list--img
+        -#       =image_tag("/products/3.png")
+        -#     .product-list--body
+        -#       %h3.name 3
+        -#       .details
+        -#         %ul
+        -#           %li 3000円
+        -#           %li
+        -#             %i.fas.fa-star
+        -#               0
+        -#         %p (税込)
+        -# .product-list
+        -#   %a 
+        -#     %figure.product-list--img
+        -#       =image_tag("/products/5.png")
+        -#     .product-list--body
+        -#       %h3.name 5
+        -#       .details
+        -#         %ul
+        -#           %li 5000円
+        -#           %li
+        -#             %i.fas.fa-star
+        -#               0
+        -#         %p (税込)
 
   %section.picup-container
     %h2.picup-subtitle ピックアップブランド

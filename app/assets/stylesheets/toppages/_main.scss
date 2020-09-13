@@ -239,8 +239,10 @@
           position: relative;
         }
         .product-list {
-          width: 220px;
-          display: inline-block;
+          display: flex;
+          text-align: center;
+          // width: 220px;
+          // display: inline-block;
           a {
             background-color: #fff;
             display: inline-block;
