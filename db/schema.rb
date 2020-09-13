@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_15_065508) do
+ActiveRecord::Schema.define(version: 2020_09_13_080809) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -69,11 +69,21 @@ ActiveRecord::Schema.define(version: 2020_08_15_065508) do
     t.integer "delivery_day", null: false
     t.integer "price", null: false
     t.integer "seller_id", null: false
-    t.integer "buyer_id"
-    t.integer "brand_id"
+    t.integer "brand_id", null: false
     t.integer "category_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "status"
+    t.integer "card_id", null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
+    t.index ["item_id"], name: "index_transactions_on_item_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -97,4 +107,6 @@ ActiveRecord::Schema.define(version: 2020_08_15_065508) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "transactions", "items"
+  add_foreign_key "transactions", "users", column: "buyer_id"
 end
