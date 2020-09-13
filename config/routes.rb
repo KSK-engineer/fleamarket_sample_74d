@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
+    resources :transactions, only: [:new, :index, :create]
   end
+  
   resources :registration, only: [:new, :index]
   resources :mypages, only: [:index]
   resources :cards, only: [:new, :create, :show, :destroy]
@@ -26,5 +28,4 @@ Rails.application.routes.draw do
     # put '/addresses/:id', to: 'users/registrations#update_address'
   end
 
-  resources :transactions, only: [:new, :index, :create]
 end
