@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
     @address = Prefecture.all
     @item = Item.new(item_params)
   
@@ -77,9 +76,9 @@ class ItemsController < ApplicationController
       :price, 
       :seller_id, 
       :buyer_id, 
-      :brand_id, 
+      :brands_id, 
       :category_id, 
-      images_attributes_id:  [:src, :_destroy, :id]
+      images_attributes:  [:src, :_destroy, :id]
     ).merge(seller_id: current_user.id)
   end
   
