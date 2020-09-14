@@ -95,21 +95,24 @@
       .product-lists
         .product-list
           - @items.each do |item|
-            -# - if Transaction.find_by(item_id: item.id) == nil
-            = link_to item_path(item), class: "list__image" do
-              %figure.product-list--img
-                = image_tag item.images.first.src
-              .product-list--body
-                %h3.name
-                  = item.name
-                .details
-                  %ul
-                    %li 
-                      = item.price
-                      円
-                    %li
-                      %i.fas.fa-star 0
-                  %p (税込)
+            - if item.buyer_id.blank?
+              = link_to item_path(item), class: "list__image" do
+                %figure.product-list--img
+                  = image_tag item.images.first.src
+                .product-list--body
+                  %h3.name
+                    = item.name
+                  .details
+                    %ul
+                      %li 
+                        = item.price
+                        円
+                      %li
+                        %i.fas.fa-star 0
+                    %p (税込)
+            -# - else
+            -#   - break
+
         -# .product-list
         -#   %a 
         -#     %figure.product-list--img

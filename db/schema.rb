@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2020_08_15_065508) do
     t.integer "delivery_day", null: false
     t.integer "price", null: false
     t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
-    t.integer "brand_id", null: false
+    t.integer "buyer_id"
+    t.integer "brand_id"
     t.integer "category_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
