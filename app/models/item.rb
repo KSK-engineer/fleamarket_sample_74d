@@ -3,7 +3,12 @@ class Item < ApplicationRecord
   enum delivery_fee: {"選択してください": 0, "送料込み（出品者負担）": 1, "着払い（購入者負担）": 2}, _prefix: true
   enum delivery_day: {"選択してください": 0, "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3}, _prefix: true
 
-
+  validates :name, :detail, :price, :category_id,  presence: true
+  validates :prefecture_id, format: { with: /\A[1-9]+\z/}
+  LIMITS_VALUE = ["選択してください"]
+  validates :condition, exclusion: {in: LIMITS_VALUE, message: "を選択してください"}
+  validates :delivery_fee, exclusion: {in: LIMITS_VALUE, message: "を選択してください"}
+  validates :delivery_day, exclusion: {in: LIMITS_VALUE, message: "を選択してください"}
   has_many :images, dependent: :destroy
   
   belongs_to :category, optional: true
