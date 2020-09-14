@@ -9,11 +9,13 @@
         .label
           カード番号
         = "**** **** **** " + @card_information.last4
-      .card--info--date
+      .card--info--form
+        .label
+          有効期限
         - exp_month = @card_information.exp_month.to_s
         - exp_year = @card_information.exp_year.to_s.slice(2,3)
         = exp_month + " / " + exp_year
-      .card--delete
+      .card--info--delete
         = form_tag(card_path, method: :delete, id: 'charge-form',  name: "inputForm") do
           %input{ type: "hidden", name: "card_id", value: "" }
           %button 削除する

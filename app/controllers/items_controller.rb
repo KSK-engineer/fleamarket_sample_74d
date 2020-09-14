@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
     @address = Prefecture.all
     @item = Item.new(item_params)
   

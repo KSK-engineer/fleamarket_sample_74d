@@ -6,39 +6,48 @@
       購入内容の確認
     .buy__confirmation--info--item
       .image
+        -# = image_tag "#{@item.images.first.image}" , height: '76', width: '76'
       .name
-        ゲームボーイ
+        = @item.name
       .price
-        ¥10,000（税込・送料込）
+        = "¥#{@item.price.to_s(:delimited)} (税込) 送料込み"
 
-    = form_with url: new_transaction_path, class: 'buy__confirmation--info--form' do |form|
+    = form_with model: @transaction, url: item_transactions_path, local: true, class: 'buy__confirmation--info--form' do |form|
       .buy__confirmation--info--form--box
         .box
           .label 
             支払金額
           .data
-            ¥10,000
+            = "¥#{@item.price.to_s(:delimited)}"
       .buy__confirmation--info--form--box
         .label 
-          支払方法
-        .title
           クレジットカード
-        .data
-          ************1111
-          01/24
+        .label
+          = "**** **** **** " + @card_payjp.last4
+        .label
+          = "有効期限 #{@card_payjp.exp_month.to_s} / #{@card_payjp.exp_year.to_s.slice(2,3)}"
         .edit
-          = link_to "変更する", new_card_path, class: 'edit__btn'
+          = link_to "変更する", card_path(current_user.id), class: 'edit__btn'
       .buy__confirmation--info--form--box
-        .label 
+        .label  
           配送先
         .data
-          〒111-0000
-          北海道札幌市手稲区手稲１−１−１
-          山田　太郎
+          〒
+          = @address.postcode
+        .data
+          = @address.prefecture
+          = @address.city
+          = @address.block
+          = @address.building
+          = @address.room_number
+        %data
+          = @address.family_name 
+        %data 
+          = @address.given_name
         .edit
           = link_to "変更する", new_registration_path, class: 'edit__btn'
       .buy__confirmation--info--form--register
-        = link_to "購入する", root_path, class: 'purchase__btn'
+        = form.submit "購入する", class: 'purchase__btn'
 
 = render 'footer'
         
