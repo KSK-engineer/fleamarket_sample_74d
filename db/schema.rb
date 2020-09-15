@@ -14,12 +14,10 @@ ActiveRecord::Schema.define(version: 2020_09_13_080809) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-
     t.string "family_name", null: false
     t.string "given_name", null: false
     t.string "family_name_kana", null: false
     t.string "given_name_kana", null: false
-
     t.integer "postcode", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false
@@ -39,11 +37,12 @@ ActiveRecord::Schema.define(version: 2020_09_13_080809) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,9 +106,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_080809) do
   end
 
   add_foreign_key "addresses", "users"
-
   add_foreign_key "cards", "users"
   add_foreign_key "transactions", "items"
   add_foreign_key "transactions", "users", column: "buyer_id"
-
 end
