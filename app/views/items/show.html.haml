@@ -5,10 +5,10 @@
     %h.itemBox__name
       = @item.name
     .img
-      = image_tag("#{@image.src}", size: '560x346', class: 'img__img')
+      = image_tag("#{@image.src.url}", size: '560x346', class: 'img__img')
     %ul
       - @images.each do |i|
-        = image_tag("#{i.src}", class: 'li')
+        = image_tag("#{i.src.url}", class: 'li')
     .itemBox__price
       = @item.price
       円
@@ -17,7 +17,7 @@
     .itemDetail
       = @item.detail
     - if user_signed_in? && @item.seller_id == current_user.id
-      .item-edit
+      = link_to edit_item_path , class: "item-edit" do
         編集をする
       .item-delete
         削除する
@@ -29,6 +29,7 @@
       = link_to new_user_registration_path, class: "txt" do
         %button.buyBtn{name: "button", type: "submit"}
           新規会員登録をして購入画面に進む
+    
     .details
       %table
         %tr
@@ -48,11 +49,11 @@
             %br
             = link_to "#" , class:"cate" do
               = @category.name
-        %tr
-          %th
-            ブランド
-          %td
-            = @brand.name
+        -# %tr
+        -#   %th
+        -#     ブランド
+        -#   %td
+        -#     = @brand.name
         -# %tr
         -#   %th
         -#     商品のサイズ

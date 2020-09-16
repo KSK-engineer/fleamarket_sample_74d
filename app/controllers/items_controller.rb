@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_parents, only: [:new, :create]
-
+  before_action :set_parents, only: [:new, :create, :edit]
+  before_action :set_item, only: [:update]
   def index
     @items = Item.limit(4).includes(:images).order('created_at DESC')
 
@@ -39,8 +39,36 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    grandchild_category = Category.find(@item.category_id)
+    child_category = grandchild_category.parent
+    @category = Category.find(@item.category_id)
+    @images = Image.where(item_id: params[:id])
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path, notice: '商品を更新しました'
+    else
+      render :edit
+    end
+  end
   
 
   def destroy
@@ -60,7 +88,7 @@ class ItemsController < ApplicationController
     @address = Prefecture.find(@item.prefecture_id)
     @seller = User.find(@item.seller_id)
     @category = Category.find(@item.category_id)
-    @brand = Brand.find(@item.brand_id)
+    # @brand = Brand.find(@item.brand_id)
   end
 
   private
@@ -81,7 +109,7 @@ class ItemsController < ApplicationController
       images_attributes:  [:src, :_destroy, :id]
     ).merge(seller_id: current_user.id)
   end
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
