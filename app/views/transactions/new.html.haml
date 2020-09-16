@@ -21,14 +21,18 @@
           .data
             = "¥#{@item.price.to_s(:delimited)}"
       .buy__confirmation--info--form--box
-        .label 
-          クレジットカード
-        .label
-          = "**** **** **** " + @card_payjp.last4
-        .label
-          = "有効期限 #{@card_payjp.exp_month.to_s} / #{@card_payjp.exp_year.to_s.slice(2,3)}"
-        .edit
-          = link_to "変更する", card_path(current_user.id), class: 'edit__btn'
+        - if @card_payjp
+          .label 
+            クレジットカード
+          .label
+            = "**** **** **** " + @card_payjp.last4
+          .label
+            = "有効期限 #{@card_payjp.exp_month.to_s} / #{@card_payjp.exp_year.to_s.slice(2,3)}"
+          .edit
+            = link_to "変更する", card_path(current_user.id), class: 'edit__btn'
+        - else
+          = link_to 'カードを登録する', new_card_path(current_user.id), class: 'edit__btn'
+
       .buy__confirmation--info--form--box
         .label  
           配送先
