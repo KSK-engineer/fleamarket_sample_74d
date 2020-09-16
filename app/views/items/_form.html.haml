@@ -73,7 +73,7 @@
           商品の状態
           .must
             必須
-        = f.select :condition, Item.conditions.keys, class: 'condition'
+        = f.select :condition, Item.conditions.keys, class: 'conditions'
           
       .item-deli
         .deli-title
@@ -105,7 +105,8 @@
             販売価格
             .must
               必須
-          ¥
+          .en
+            ¥
           = f.number_field :price, placeholder:"0", class: 'sell-price_form'
         .fee
           販売手数料（10%）
@@ -119,14 +120,3 @@
           = link_to '戻る', items_path, class: 'back-btn' 
         .precautions
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-.newitem-footer
-  .notes
-    .privacy
-      プライバシーポリシー
-    .terms
-      メルカリ利用規約
-    .notation
-      特定商取引に関する取引
-  .foot-logo
-  .inc
-    ©️ FURIMA.Inc

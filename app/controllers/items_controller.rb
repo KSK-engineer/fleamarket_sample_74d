@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit]
   before_action :set_item, only: [:update]
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.limit(4).includes(:images).order('created_at DESC')
 
   end
   
@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
     @address = Prefecture.all
     @item = Item.new(item_params)
   
@@ -105,7 +104,7 @@ class ItemsController < ApplicationController
       :price, 
       :seller_id, 
       :buyer_id, 
-      :brand_id, 
+      :brands_id, 
       :category_id, 
       images_attributes:  [:src, :_destroy, :id]
     ).merge(seller_id: current_user.id)

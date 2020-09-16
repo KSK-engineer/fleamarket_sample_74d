@@ -22,7 +22,7 @@
       .item-delete
         削除する
     - elsif user_signed_in?
-      = link_to "#", class: "txt" do
+      = link_to new_item_transaction_path(@item.id), class: "txt" do
         %button.buyBtn{name: "button", type: "submit"}
           購入画面に進む
     - else

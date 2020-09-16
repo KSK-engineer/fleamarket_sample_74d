@@ -1,6 +1,6 @@
 .buy__confirmation {
   width: 100vw;
-  height: 100vh;
+  height: 900px;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   background-color: #f8f8f8;
 
@@ -59,23 +59,16 @@
       }
 
       &--register {
-        margin: 0 auto;
         text-align: center;
-        width: 100px;
-        height: 50px;
-        line-height: 50px;
-        font-size: 18px;
-        font-weight: bold;
-        color:white;
-        background-color: red;
-        border-radius: 4px;
-        cursor: pointer;
+        line-height: 120px;
       }
 
       .purchase__btn {
-        text-decoration: none;
         color:white;
+        background-color: red;
         cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
       }
     }
   }
