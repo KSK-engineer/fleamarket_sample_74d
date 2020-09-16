@@ -280,7 +280,7 @@
           border-radius: 3px;
         }
       }
-      .condition{
+      #item_condition{
         height: 48px;
         width: 620px;
         padding: 0px 56px 0px 16px;
@@ -324,13 +324,15 @@
           border-radius: 3px;
         }
       }
-      .price{
+      #item_delivery_fee{
         height: 48px;
         width: 620px;
-        padding: 0px 16px;
+        padding: 0px 56px 0px 16px;
+        font-size: 16px;
         margin-top: 10px;
         color: #888888;
       }
+      
       .deli-area{
           height: 19px;
           width: 620px;
@@ -350,7 +352,7 @@
           border-radius: 3px;
         }
       }
-      .area{
+      #item_prefecture_id{
         height: 48px;
         width: 620px;
         padding: 0px 16px;
@@ -376,7 +378,7 @@
           border-radius: 3px;
         }
       }
-      .days{
+      #item_delivery_day{
         height: 48px;
         width: 620px;
         padding: 0px 16px;
@@ -400,6 +402,13 @@
           color: #3ccace;
         }
       }
+      #item_price{
+        height: 48px;
+        width: 620px;
+        padding: 0px 16px;
+        // margin-top: 10px;
+        color: #888888;
+      }
       .sells{
         height: 58px;
           width: 620px;
@@ -408,11 +417,11 @@
           align-items: center;
         .sell-price{
           height: 19px;
-          width: 96px;
+          width: 220px;
           font-weight: bold;
           font-size: 14px;
           display: flex;
-          margin-right: 220px;
+          margin-right: 200px;
           color: black;
           .must{
             height: 19px;
@@ -424,6 +433,9 @@
             text-align: center;
             border-radius: 3px;
           }
+        }
+        .en{
+          font-size: 20px;
         }
         .price{
           width: 285px;
