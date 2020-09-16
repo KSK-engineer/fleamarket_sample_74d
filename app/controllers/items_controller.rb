@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_parents, only: [:new, :create]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.limit(4).includes(:images).order('created_at DESC')
 
   end
   
