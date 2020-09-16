@@ -3,7 +3,7 @@
 }
 
 .main{
-  height: 1900px;
+  height: auto;
   width: 100%;
   background-color: #f8f8f8;
   padding: 40px;
@@ -29,14 +29,15 @@
       margin: auto;
     }
     ul{
-      height: 87px;
-      width: 560px;
+      height: auto;
+      width: auto;
       margin: auto;
       position: relative;
       display: flex;
-      padding: 0px 70px;
+      padding: 0px 30px;
+      display: flex;
+      flex-wrap: wrap;
       .li{
-        margin: auto;
         width: 140px;
         height: 87px;
         border: 1px solid white;
@@ -91,6 +92,7 @@
       float: left;
       margin-right: 10px;
       margin-bottom: 20px;
+      text-decoration: none;
     }
     .item-delete{
       height: 40px;
