@@ -17,9 +17,9 @@
     .itemDetail
       = @item.detail
     - if user_signed_in? && @item.seller_id == current_user.id
-      .item-edit
+      = link_to edit_item_path , class: "item-edit" do
         編集をする
-      .item-delete
+      = link_to item_path(@item.id), method: :delete, class: "item-delete" do
         削除する
     - elsif user_signed_in?
       = link_to new_item_transaction_path(@item.id), class: "txt" do
@@ -29,6 +29,7 @@
       = link_to new_user_registration_path, class: "txt" do
         %button.buyBtn{name: "button", type: "submit"}
           新規会員登録をして購入画面に進む
+
     .details
       %table
         %tr
@@ -48,11 +49,11 @@
             %br
             = link_to "#" , class:"cate" do
               = @category.name
-        %tr
-          %th
-            ブランド
-          %td
-            = @brand.name
+        -# %tr
+          -# %th
+            -#ブランド
+          -# %td
+            -#= @brand.name
         -# %tr
         -#   %th
         -#     商品のサイズ

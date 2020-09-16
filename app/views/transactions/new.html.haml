@@ -6,11 +6,12 @@
       購入内容の確認
     .buy__confirmation--info--item
       .image
-        -# = image_tag "#{@item.images.first.image}" , height: '76', width: '76'
-      .name
-        = @item.name
-      .price
-        = "¥#{@item.price.to_s(:delimited)} (税込) 送料込み"
+        = image_tag "#{@item.images.first.src.url}" , height: '76', width: '76'
+      .information
+        .name
+          = @item.name
+        .price
+          = "¥#{@item.price.to_s(:delimited)} (税込) 送料込み"
 
     = form_with model: @transaction, url: item_transactions_path, local: true, class: 'buy__confirmation--info--form' do |form|
       .buy__confirmation--info--form--box
