@@ -19,7 +19,7 @@
     - if user_signed_in? && @item.seller_id == current_user.id
       = link_to edit_item_path , class: "item-edit" do
         編集をする
-      .item-delete
+      = link_to item_path(@item.id), method: :delete, class: "item-delete" do
         削除する
     - elsif user_signed_in?
       = link_to new_item_transaction_path(@item.id), class: "txt" do
