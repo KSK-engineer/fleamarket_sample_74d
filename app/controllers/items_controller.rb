@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit]
-
+  before_action :set_item, only: [:update]
   def index
     @items = Item.includes(:images).order('created_at DESC')
 
@@ -44,8 +44,7 @@ class ItemsController < ApplicationController
     grandchild_category = Category.find(@item.category_id)
     child_category = grandchild_category.parent
     @category = Category.find(@item.category_id)
-    @images = @item.images
-
+    @images = Image.where(item_id: params[:id])
 
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
@@ -65,14 +64,12 @@ class ItemsController < ApplicationController
 
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path, notice: '商品を更新しました'
     else
       render :edit
     end
   end
-
   
 
   def destroy
@@ -110,9 +107,9 @@ class ItemsController < ApplicationController
       :buyer_id, 
       :brand_id, 
       :category_id, 
-      images_attributes_id:  [:src, :_destroy, :id]
+      images_attributes:  [:src, :_destroy, :id]
     )
-    .merge(seller_id: current_user.id)
+    # .merge(seller_id: current_user.id)
   end
 
   def set_item

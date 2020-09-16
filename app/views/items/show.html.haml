@@ -5,10 +5,10 @@
     %h.itemBox__name
       = @item.name
     .img
-      = image_tag("#{@image.src}", size: '560x346', class: 'img__img')
+      = image_tag("#{@image.src.url}", size: '560x346', class: 'img__img')
     %ul
       - @images.each do |i|
-        = image_tag("#{i.src}", class: 'li')
+        = image_tag("#{i.src.url}", class: 'li')
     .itemBox__price
       = @item.price
       円
