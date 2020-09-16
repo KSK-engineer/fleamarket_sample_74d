@@ -31,7 +31,6 @@
           .edit
             = link_to "変更する", card_path(current_user.id), class: 'edit__btn'
         - else
-          = link_to 'カードを登録する', new_card_path(current_user.id), class: 'edit__btn'
 
       .buy__confirmation--info--form--box
         .label  
@@ -53,7 +52,10 @@
           = link_to "", class: 'edit__btn' do
             変更する
       .buy__confirmation--info--form--register
-        = form.submit "購入する", class: 'purchase__btn'
+        - if @card_payjp
+          = form.submit "購入する", class: 'purchase__btn'
+        - else
+          = link_to 'カードを登録する', new_card_path(current_user.id), class: 'purchase__btn'
 
 = render 'footer'
         
