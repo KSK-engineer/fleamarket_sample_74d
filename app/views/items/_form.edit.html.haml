@@ -13,29 +13,31 @@
         .img-setumei
           最大10枚までアップロードできます
         #image-box
-          %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
-            #previews
-              .preview
-                - if @item.persisted?
-                  - @item.images.each_with_index do |image, i|
-                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-              = f.fields_for :images do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :src, class: 'js-file hidden'
-                  
+          -# %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
+          #previews
+            .preview
               - if @item.persisted?
-                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - @item.images.each_with_index do |image, i|  
+                  .image_box
+                    = image_tag image.src, data: { index: i }, width: "100", height: '100'
+                    .js_remove__btn(data-index="#{i}")
+                      = "削除"
+            .label-content
+              %pre.label-box__text-visible.fa.fa-camera
+          = f.fields_for :images do |image|
+
+
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :src, class: 'js-file hidden'
+              .js-remove.hidden(data-index = "#{image.index}") 削除#{image.index}
+            - if @item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
             - if @item.persisted?
               .js-file_group{"data-index" => "#{@item.images.count}"}
                 = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file hidden'
+                .js-remove.hidden(data-index = "#{@item.images.count}") 削除
                 
 
-            = f.label :image, class: 'image' do
-              = icon("fas","camera", class: 'camera')
-            .drag-drop
-              ドラックアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
       .item-name
         
         .name-title
@@ -61,9 +63,18 @@
           カテゴリー
           .must
             必須
-        #category_field
-          = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
-          -# = f.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},class:"serect_field"
+            -# 親カテゴリボックス
+          .sell__main__content__form__box__group
+            .sell__main__content__form__box__group__select
+              = f.collection_select :category_parent_id, @category_parent_array, :id, :name, {selected: @item_root_category.id}
+              -# 子カテゴリボックス
+          #children_wrapper.listing-select-wrapper__added
+            .listing-select-wrapper__box
+              = f.collection_select :category_id, @item_children_category, :id, :name, {prompt: ""}, {id: "existing_child_category"}
+              -# 孫カテゴリボックス
+          #grandchildren_wrapper.listing-select-wrapper__added
+            .listing-select-wrapper__box
+              = f.collection_select :category_id, @item_grandcildren_category, :id, :name
         .brand-title
           ブランド
           .any
@@ -115,7 +126,7 @@
       .btns-content
         .btns
         
-          = f.submit '出品する', class: 'sale-btn' 
+          = f.submit '更新する', class: 'sale-btn' 
           = f.submit '下書きに保存', class: 'draft-btn' 
           = link_to '戻る', items_path, class: 'back-btn' 
         .precautions

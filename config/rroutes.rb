@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   
   resources :items do
     collection do
+      get 'get_category_children', defaults: { fomat: 'json'}
+      get 'get_category_grandchildren', defaults: { fomat: 'json'}
       get 'search'
-      get 'category' 
-      get 'category_children' 
-      get 'category_grandchildren'
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'post_done'
+      get 'delete_done'
+      get 'detail_search'
+      get 'update_done'
     end
     resources :transactions, only: [:new, :index, :create]
   end
