@@ -108,8 +108,7 @@ class ItemsController < ApplicationController
       :brand_id, 
       :category_id, 
       images_attributes:  [:src, :_destroy, :id]
-    )
-    # .merge(seller_id: current_user.id)
+    ).merge(seller_id: current_user.id)
   end
 
   def set_item
