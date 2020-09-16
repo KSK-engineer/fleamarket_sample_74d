@@ -17,7 +17,7 @@
     .itemDetail
       = @item.detail
     - if user_signed_in? && @item.seller_id == current_user.id
-      .item-edit
+      = link_to edit_item_path , class: "item-edit" do
         編集をする
       .item-delete
         削除する
@@ -29,6 +29,7 @@
       = link_to new_user_registration_path, class: "txt" do
         %button.buyBtn{name: "button", type: "submit"}
           新規会員登録をして購入画面に進む
+    
     .details
       %table
         %tr
