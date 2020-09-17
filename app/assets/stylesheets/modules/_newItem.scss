@@ -82,13 +82,15 @@
             }
 
             .js-file_group{      
-              
+              .hidden-destroy{
+                display: none;
+              }
               .js-file{
                 
 
               }  
               .js-remove{
-                display: block
+                display: block;
               }
               
               
