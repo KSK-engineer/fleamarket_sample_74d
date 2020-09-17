@@ -14,7 +14,8 @@
           %li
             = link_to new_item_path do
               出品する
-              %i.icon-arrow-right    
+              %i.icon-arrow-right
+              
           %li
             = link_to "" do
               出品商品情報
@@ -39,16 +40,11 @@
             = link_to "" do
               お問い合わせ
               %i.icon-arrow-right
-          %li
-            = link_to items_path do
-              ログアウト
-              %i.icon-arrow-right
-          .setting
+        .setting
           設定
-          %li
-            = link_to items_path do
-              ログアウト
-              %i.icon-arrow-right
+        %li.right-box__item.right-box__item--login
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+        
     .right-content
       .image
         .icon
