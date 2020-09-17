@@ -18,12 +18,15 @@ class ItemsController < ApplicationController
     @address = Prefecture.all
     @item = Item.new(item_params)
   
-    if @item.save!
+    if @item.save
       redirect_to root_path, notice: "登録に成功しました"
     else
-      render :new
+      # render :new,alert: "未入力の項目があります"
+      # flash[:notice] = "未入力の項目があります"
+      redirect_to new_item_path,notice: "未入力の項目があります"
+      
     end
-
+    
   end
 
   def search
