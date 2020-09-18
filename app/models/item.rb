@@ -9,7 +9,9 @@ class Item < ApplicationRecord
   validates :condition, exclusion: {in: LIMITS_VALUE, message: "を選択してください"}
   validates :delivery_fee, exclusion: {in: LIMITS_VALUE, message: "を選択してください"}
   validates :delivery_day, exclusion: {in: LIMITS_VALUE, message: "を選択してください"}
+  validates :images, presence: true, length: {minimum: 1, maximum: 10}
   has_many :images, dependent: :destroy
+  
   
   belongs_to :category, optional: true
   belongs_to :brand, optional: true

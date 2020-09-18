@@ -1,3 +1,4 @@
+= render partial: 'header'
 .post-item
   = form_with model: @item, class: 'post-item-form', local: true do |f|
     .logo
@@ -13,20 +14,23 @@
         .img-setumei
           最大10枚までアップロードできます
         #image-box
-          %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
-            #previews
-              .preview
-                - @item.images.each_with_index do |image, i|
-                  .item-image{id:image.id}
-                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+          %label{for: "item_images_attributes_#{@images.length}_src", class: "label-box", id: "label-box--#{@images.length}"}
+          #previews
+            .preview
+              - if @item.persisted?
+                - @images.each_with_index do |img,i|
+                  .item-image{id:img.id}
+                    = image_tag(img.src.url,{width:"100",height:"100"})
                     .js-remove{data: { index: i }} 削除
               = f.fields_for :images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
                   = image.file_field :src, class: 'js-file hidden'
-                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-            .js-file_group{"data-index" => "#{@item.images.count}"}
-              = f.fields_for :images do |image|
-                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file hidden'
+                  - if image.object.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            -# - if @item.persisted?
+            -#   .js-file_group{"data-index" => "#{@item.images.count}"}
+            -#     = f.fields_for :images do |image|
+            -#       = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file hidden'
                 
               
 
@@ -121,14 +125,4 @@
           = link_to '戻る', items_path, class: 'back-btn' 
         .precautions
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-.newitem-footer
-  .notes
-    .privacy
-      プライバシーポリシー
-    .terms
-      メルカリ利用規約
-    .notation
-      特定商取引に関する取引
-  .foot-logo
-  .inc
-    ©️ FURIMA.Inc
+= render partial: 'footer'

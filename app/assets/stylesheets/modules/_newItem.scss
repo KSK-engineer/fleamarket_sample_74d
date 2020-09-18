@@ -26,7 +26,7 @@
     }
   }
   .item-details{
-    height: 2179px;
+    height: auto;
     width: 700px;
     margin: auto;
     .item-img{
@@ -59,6 +59,35 @@
         font-size: 14px;
       }
       #image-box{
+        position:relative;
+
+        #previews{
+          display: flex;
+          padding-top: 16px;
+          position: absolute;
+          top:0;
+         
+          .preview{
+            display: flex;
+            padding-top: 16px;
+          }
+
+          .js-file_group{      
+            .hidden-destroy{
+              display: none;
+            }
+            .js-file{
+              
+
+            }  
+            .js-remove{
+              display: block;
+            }
+            
+            
+          }
+        }
+
         .label-box{
           display: inline-block;
           height: 180px;
@@ -72,30 +101,30 @@
           
 
           
-          #previews{
-            display: flex;
-            padding-top: 16px;
+          // #previews{
+          //   display: flex;
+          //   padding-top: 16px;
            
-            .preview{
-              display: flex;
-              padding-top: 16px;
-            }
+          //   .preview{
+          //     display: flex;
+          //     padding-top: 16px;
+          //   }
 
-            .js-file_group{      
-              .hidden-destroy{
-                display: none;
-              }
-              .js-file{
+          //   .js-file_group{      
+          //     .hidden-destroy{
+          //       display: none;
+          //     }
+          //     .js-file{
                 
 
-              }  
-              .js-remove{
-                display: block;
-              }
+          //     }  
+          //     .js-remove{
+          //       display: block;
+          //     }
               
               
-            }
-          }
+          //   }
+          // }
           .fa-camera{
             display: block;
             height: 20px;
