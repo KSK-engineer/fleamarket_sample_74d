@@ -42,9 +42,6 @@ $(function(){
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
-
-  
-  $('.label-box').on('click', function(e) {});
   
   $('#image-box').on('click', '.js-remove', function(e) {
     e.stopPropagation();
