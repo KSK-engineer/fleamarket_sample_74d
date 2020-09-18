@@ -4,11 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_one  :card,       dependent: :destroy
-  has_many :addresses,  dependent: :destroy
-  has_many :likes,      dependent: :destroy
-  has_many :comments,   dependent: :destroy
-  has_many :items,      dependent: :destroy
+  has_one  :card,         dependent: :destroy
+  has_many :addresses,    dependent: :destroy
+  has_many :likes,        dependent: :destroy
+  has_many :comments,     dependent: :destroy
+  has_many :items,        dependent: :destroy
+  has_many :transactions, dependent: :destroy
 
   validates :nickname,           presence: true
   validates :familyname_kanji,   presence: true
