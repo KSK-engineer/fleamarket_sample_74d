@@ -27,11 +27,7 @@
                   = image.file_field :src, class: 'js-file hidden'
                   - if image.object.persisted?
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-            -# - if @item.persisted?
-            -#   .js-file_group{"data-index" => "#{@item.images.count}"}
-            -#     = f.fields_for :images do |image|
-            -#       = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file hidden'
-                
+            
               
 
             = f.label :image, class: 'image' do
@@ -121,7 +117,6 @@
         .btns
         
           = f.submit '更新する', class: 'sale-btn' 
-          -# = f.submit '下書きに保存', class: 'draft-btn' 
           = link_to '戻る', items_path, class: 'back-btn' 
         .precautions
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

@@ -52,7 +52,7 @@ class TransactionsController < ApplicationController
       session.delete(:item_id)
 
       # 登録成功の場合、トップページへ遷移する
-      redirect_to controller: 'items', action: 'index'
+      redirect_to controller: 'items', action: 'index', notice: '商品を購入しました'
     else
       # 登録失敗の場合、購入確認画面へ戻る
       render action: 'new'

@@ -15,6 +15,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
+        flash[:notice] = 'カードが登録されました'
         redirect_to root_path
       else
         render :new

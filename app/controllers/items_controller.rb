@@ -19,10 +19,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
   
     if @item.save
-      redirect_to root_path, notice: "登録に成功しました"
+      redirect_to root_path, notice: "商品を出品しました"
     else
-      # render :new,alert: "未入力の項目があります"
-      # flash[:notice] = "未入力の項目があります"
       redirect_to new_item_path,notice: "未入力の項目があります"
       
     end
@@ -69,7 +67,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path, notice: '商品を更新しました'
+      redirect_to item_path, notice: '商品内容を更新しました'
     else
       redirect_to edit_item_path, notice: '画像を１枚以上入れて下さい'
     end
@@ -79,7 +77,7 @@ class ItemsController < ApplicationController
   def destroy
 
     if @item.destroy
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を削除しました'
     else
       render :show
     end
@@ -93,7 +91,6 @@ class ItemsController < ApplicationController
     @address = Prefecture.find(@item.prefecture_id)
     @seller = User.find(@item.seller_id)
     @category = Category.find(@item.category_id)
-    # @brand = Brand.find(@item.brand_id)
   end
 
   private
