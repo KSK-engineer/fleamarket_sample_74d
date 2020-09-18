@@ -12,10 +12,9 @@
 |birthday|date|null:false|
 ### Association
 - has_one :address, :dependent => :destroy
-- has_one :credit_card(PAY.jp), :dependent => :destroy
+- has_one :card, :dependent => :destroy
 - has_many :items, :dependent => :destroy
-- has_many :likes(中間), :dependent => :destroy
-- has_many :comments(中間), :dependent => :destroy
+- has_many :transactions, :dependent => :destroy
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -37,28 +36,7 @@
 - belongs_to :category, 
 - belongs_to :brand, 
 - has_many :images, :dependent => :destroy
-- has_many :likes, :dependent => :destroy
-- has_many :comments, :dependent => :destroy
 
-## likes(中間)テーブル
-|Column|Type|Options|
-|------|----|-------|
-|buyer_id|references|null:false, foreign_key:true|
-|item_id|references|null:false, foreign_key:true|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-
-## comments(中間)テーブル
-|Column|Type|Options|
-|------|----|-------|
-|buyer_id|references|null:false, foreign_key:true|
-|item_id|references|null:false, foreign_key:true|
-|comment|text|null:false|
-### Association
-- belongs_to :user
-- belongs_to :item
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -69,25 +47,26 @@
 - belongs_to :item
 
 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false|
+|user_id|references|null:false, foreign_key: true|
 |postcode|integer|null:false|
 |prefecture_id(acitve_hash)|integer|null: false|
 |city|string|null:false|
 |block|string|null:false|
 |building|string|
 |phone_number|integer|
+|phone_number|integer|
 ### Association
 - belongs_to :user
 
-## credit_cards(PAY.jp)テーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false|
-|card_number|integer|null:false|
-|valid_date|integer|null:false|
+|user_id|references|null:false, foreign_key:true|
+|customer_id|string|null:false|
+|card_id|string|null:false|
 ### Association
 - belongs_to :user
 
@@ -105,3 +84,16 @@
 |ancestry|string|
 ### Association
 - has_many :items
+
+
+## Transactionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|status|integer||
+|card_id|string|null:false, foreign_key:true|
+|buyer_id|string|null:false, foreign_key:true|
+|item_id|string|null:false, foreign_key:true|
+### Association
+- belongs_tp :card
+- belongs_tp :user
+- belongs_tp :item
