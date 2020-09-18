@@ -35,4 +35,10 @@ $(function(){
       });
     }
   })
+  $(".js-remove").on('click', function(){
+    const num = $(this).data("index");
+    console.log(num)
+    $(`#item_images_attributes_${num}__destroy`).prop('checked', true);
+    $(`img[data-index="${num}"]`).remove();
+  })
 })

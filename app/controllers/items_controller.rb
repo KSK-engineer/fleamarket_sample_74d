@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item.images.new
     grandchild_category = Category.find(@item.category_id)
     child_category = grandchild_category.parent
     @category = Category.find(@item.category_id)
@@ -70,7 +71,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path, notice: '商品を更新しました'
     else
-      render :edit
+      redirect_to edit_item_path, notice: '画像を１枚以上入れて下さい'
     end
   end
   
